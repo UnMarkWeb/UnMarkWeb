@@ -1,0 +1,19 @@
+/* ========================
+   Landing Page Custom Styles
+   ======================== */
+
+/* Shadows */
+.ambient-shadow-level-1 {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ambient-shadow-level-2 {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>UnMark - Protege y Limpia tus Imágenes con IA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="{% static 'landing_page/tailwind-config.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'landing_page/landing_page.css' %}?v=1.3">
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .gradient-text {
+            background: linear-gradient(to right, theme('colors.primary'), theme('colors.tertiary'));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <nav class="bg-surface dark:bg-on-background shadow-sm sticky top-0 w-full z-50">
+        <div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
+                <span
+                    class="text-headline-md font-headline-lg text-primary dark:text-primary-fixed tracking-tight">UnMark</span>
+            </div>
+            <div class="hidden md:flex gap-gutter items-center">
+                <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                    href="#">Pricing</a>
+                <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                    href="#">Features</a>
+                <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                    href="#">Support</a>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 text-on-surface-variant dark:text-outline-variant font-medium text-label-md hover:text-primary transition-colors py-2 px-2 rounded-lg hover:bg-surface-container">
+                        <span class="material-symbols-outlined text-[20px]">language</span>
+                        <span class="hidden lg:block">Español</span>
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute right-0 mt-1 w-40 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
+                        <a href="#"
+                            class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-container transition-colors">Català</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-container transition-colors">English</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-label-md text-primary bg-surface-container font-semibold">Español</a>
+                    </div>
+                </div>
+                <button
+                    class="hidden md:block text-primary dark:text-primary-fixed font-label-md text-label-md hover:text-primary-container transition-colors">Login</button>
+                <button
+                    class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">Get
+                    Started</button>
+                <img alt="User Avatar"
+                    class="w-10 h-10 rounded-full border border-outline-variant object-cover hidden sm:block"
+                    data-alt="A small, circular, minimalist user avatar showing a smiling person in a brightly lit studio. Professional corporate headshot style."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1SSKwK1MLCqg49tZ8aOB2uN3i62z897jDeoS8RPUE0bzd6f4qrYdwXV-cABgN3ea_kBst21M4iEIn6nBQbXgPJcSM214cMDFXQDDrfaA39u0nBo94nhngodjFfqJcFksPeImvK8N9yrU8ZrzyaTZ8rmzfIc2C09hdJWSFE_9Xlqy8LEsT-SzofuqJgWMx6JWLhpIKyEXJScd_IYyy6yRQ2krCkEXkfQoFzhSBLnXL0c283XT3oI4">
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main
+        class="flex-grow flex flex-col items-center w-full max-w-container-max mx-auto px-margin-desktop pb-stack-lg gap-32 pt-20">
+        <!-- Hero Section -->
+        <section class="w-full flex flex-col md:flex-row items-center gap-gutter">
+            <div class="flex-1 flex flex-col items-start gap-stack-md">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant mb-4">
+                    <span class="material-symbols-outlined text-[16px] text-tertiary">auto_awesome</span>
+                    <span class="text-label-sm font-label-sm text-on-surface-variant">Inteligencia Artificial de
+                        Vanguardia</span>
+                </div>
+                <h1 class="text-display-lg font-display-lg text-on-background leading-tight">
+                    Protege y Limpia tus Imágenes <br><span class="gradient-text">con IA</span>
+                </h1>
+                <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+                    Añade marcas de agua profesionales para proteger tu trabajo o elimínalas con precisión quirúrgica
+                    usando nuestra tecnología avanzada de IA. El control total de tus imágenes, al alcance de un clic.
+                </p>
+                <div class="flex gap-stack-md mt-6">
+                    <button
+                        class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        Comenzar Gratis
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button
+                        class="bg-surface text-on-surface px-8 py-4 rounded-lg font-label-md text-label-md border border-outline hover:bg-surface-variant transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Ver Demo
+                    </button>
+                </div>
+            </div>
+            <div
+                class="flex-1 relative w-full h-[500px] rounded-2xl overflow-hidden ambient-shadow-level-2 border border-outline-variant glassmorphism flex items-center justify-center">
+                <div class="absolute inset-0 bg-surface-container-low opacity-50"></div>
+                <!-- Decorative Before/After slider representation -->
+                <div class="relative w-4/5 h-4/5 flex">
+                    <div
+                        class="w-1/2 h-full bg-surface-container-high rounded-l-xl border-r border-dashed border-primary overflow-hidden relative">
+                        <img alt="Con marca" class="w-full h-full object-cover opacity-80"
+                            data-alt="A pristine, highly detailed landscape photograph of a snowy mountain peak at sunrise, with a prominent, intrusive text watermark across the center. Bright, airy, and professional stock photography style."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHwhHLNDm_f_-3OffRQIXWZwYrqwdxOrZs2JIq-fzjlNTrKSN4g9_MyP2AotduBa04uVIPkjLxoAga9JG5cCH0LwCas4ZGnM3d5ge8TNJWGShFrzBGLDlDwglWvBymVVNNCH4ylJelqHtcIosuKsVNDIoGvSFveGXjD6C8fbZqbAYfJ0gwsKhe07WDnQ7uzdkTz-SEwc12PPs2pwWQe1GEBgeQDkZk5VTp8PJWshfwpoUkul8iPwU">
+                        <div
+                            class="absolute top-4 left-4 bg-error text-on-error px-2 py-1 rounded-full text-label-sm font-label-sm shadow-sm">
+                            Original</div>
+                    </div>
+                    <div class="w-1/2 h-full bg-surface-container rounded-r-xl overflow-hidden relative">
+                        <img alt="Sin marca" class="w-full h-full object-cover"
+                            data-alt="The exact same pristine landscape photograph of a snowy mountain peak at sunrise, but perfectly clean with no watermark. Flawless editing, vibrant colors, bright and crisp professional image."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmfE5r_A6lW5mj1T6TmEYRG934sAW8XAQ6JeBah0OCaXbtYwyq1LO9X7KVH16NaR-Ve46OnmELxmRH3xE5T7enlNZVKJJKyQkWG5Q2ID9xQaweOn9pAtMS3KODsefyV5NixA6v4H9uJG1-5YxQdHXnZ7_L3RDmNxKJ53-7d2_wGDrq15Hj2X1O3AUmkkAgyEMzf4_wYVtiyz6WhGOZMVQxPhmKRP9CE031Jsfx9-mJGknmzK2OvEc">
+                        <div
+                            class="absolute top-4 right-4 bg-secondary text-on-secondary px-2 py-1 rounded-full text-label-sm font-label-sm shadow-sm">
+                            Procesada</div>
+                    </div>
+                    <!-- Slider handle -->
+                    <div
+                        class="absolute left-1/2 top-0 bottom-0 w-1 bg-primary transform -translate-x-1/2 flex items-center justify-center cursor-ew-resize">
+                        <div
+                            class="w-8 h-8 bg-primary rounded-full shadow-md flex items-center justify-center border-2 border-white">
+                            <span class="material-symbols-outlined text-white text-[16px]">swap_horiz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section class="w-full flex flex-col items-center gap-stack-lg">
+            <div class="text-center max-w-2xl">
+                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">Herramientas Profesionales, Uso
+                    Simple</h2>
+                <p class="text-body-lg font-body-lg text-on-surface-variant">Nuestra plataforma está diseñada con un
+                    enfoque minimalista para que la tecnología trabaje por ti, no en tu contra.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full">
+                <!-- Feature 1 -->
+                <div
+                    class="bg-surface-container-lowest p-8 rounded-2xl ambient-shadow-level-1 border border-surface-variant flex flex-col items-start gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-on-primary-container">shield_lock</span>
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Protección Personalizada</h3>
+                    <p class="text-body-md font-body-md text-on-surface-variant">
+                        Añade logotipos, texto o patrones repetitivos. Ajusta la opacidad, escala y posición con nuestra
+                        interfaz de arrastrar y soltar para asegurar tus derechos de autor sin arruinar la composición.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="bg-surface-container-lowest p-8 rounded-2xl ambient-shadow-level-1 border border-surface-variant flex flex-col items-start gap-4 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-tertiary-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-on-tertiary-container">ink_eraser</span>
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Eliminación Precisa (IA)</h3>
+                    <p class="text-body-md font-body-md text-on-surface-variant">
+                        Nuestra red neuronal analiza los píxeles circundantes para reconstruir el fondo oculto tras
+                        marcas de agua, textos molestos o sellos de fecha, dejando un resultado indistinguible del
+                        original.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="bg-surface-container-low p-8 rounded-2xl ambient-shadow-level-1 border border-primary-fixed flex flex-col items-start gap-4 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 bg-primary text-on-primary px-3 py-1 rounded-bl-xl font-label-sm text-label-sm font-bold">
+                        PRO</div>
+                    <div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-on-secondary-container">dynamic_feed</span>
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Procesamiento por Lotes</h3>
+                    <p class="text-body-md font-body-md text-on-surface-variant">
+                        Sube docenas de imágenes a la vez. Aplica tu marca de agua estándar o limpia carpetas enteras en
+                        segundos. Eficiencia técnica pensada para flujos de trabajo de alto volumen.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Drag & Drop Interactive Area (Mockup) -->
+        <section
+            class="w-full max-w-4xl bg-surface-container-lowest p-12 rounded-[24px] ambient-shadow-level-1 border-2 border-dashed border-outline-variant hover:border-tertiary transition-colors flex flex-col items-center justify-center gap-stack-md text-center group cursor-pointer">
+            <div
+                class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center group-hover:bg-tertiary-container transition-colors">
+                <span
+                    class="material-symbols-outlined text-[40px] text-primary group-hover:text-on-tertiary-container transition-colors">upload_file</span>
+            </div>
+            <div>
+                <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Arrastra tus imágenes aquí</h3>
+                <p class="text-body-md font-body-md text-on-surface-variant">PNG, JPG, WEBP hasta 10MB. Procesamiento
+                    seguro en la nube.</p>
+            </div>
+            <button
+                class="mt-4 px-6 py-2 bg-surface text-primary border border-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">Explorar
+                Archivos</button>
+        </section>
+        <!-- Pricing Section -->
+        <section class="w-full flex flex-col items-center gap-stack-lg mb-20">
+            <div class="text-center max-w-2xl mb-8">
+                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">Planes Simples y Transparentes
+                </h2>
+                <p class="text-body-lg font-body-lg text-on-surface-variant">Comienza gratis o desbloquea el poder total
+                    para profesionales creativos.</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-gutter max-w-4xl w-full justify-center">
+                <!-- Free Tier -->
+                <div
+                    class="flex-1 bg-surface-container-lowest rounded-2xl p-8 ambient-shadow-level-1 border border-surface-variant flex flex-col">
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Básico</h3>
+                    <div class="text-display-lg font-display-lg text-on-background mt-4 mb-2">Gratis</div>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">Perfecto para pruebas ocasionales.
+                    </p>
+                    <ul class="flex flex-col gap-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Procesa 1 imagen a la vez</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Resolución estándar (1080p)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Hasta 3 marcas de agua
+                                guardadas</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-3 bg-surface text-on-surface border border-outline rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors">Plan
+                        Actual</button>
+                </div>
+                <!-- Pro Tier -->
+                <div
+                    class="flex-1 bg-surface-container-lowest rounded-2xl p-8 ambient-shadow-level-2 border-2 border-primary relative flex flex-col">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-label-sm font-label-sm font-bold shadow-md">
+                        Recomendado</div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Pro</h3>
+                    <div class="text-display-lg font-display-lg text-primary mt-4 mb-2">$9<span
+                            class="text-body-lg text-on-surface-variant">/mes</span></div>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">Para creadores y agencias.</p>
+                    <ul class="flex flex-col gap-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface font-semibold">Procesamiento por
+                                lotes ilimitado</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Descarga en resolución original
+                                (4K+)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Plantillas de marcas de agua
+                                ilimitadas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <span class="text-body-md font-body-md text-on-surface">Soporte prioritario</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md">Suscribirse
+                        al Pro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest dark:bg-on-background border-t border-outline-variant mt-auto">
+        <div
+            class="w-full py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-stack-md">
+            <div class="text-body-lg font-headline-md text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">water_drop</span>
+                UnMark
+            </div>
+            <div class="flex gap-gutter items-center">
+                <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
+                    href="#">Terms</a>
+                <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
+                    href="#">Privacy</a>
+                <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
+                    href="#">Contact</a>
+                <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
+                    href="#">Twitter</a>
+            </div>
+            <div class="text-on-surface-variant dark:text-outline-variant text-label-sm font-label-sm">
+                © 2024 UnMark AI. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
