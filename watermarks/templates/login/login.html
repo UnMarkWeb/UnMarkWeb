@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login - UnMark AI</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script src="{% static 'login/tailwind-config.js' %}"></script>
+</head>
+
+<body
+    class="bg-background min-h-screen flex text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary flex-col">
+    <nav
+        class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant px-margin-desktop py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <a class="flex items-center gap-2 group" href="/">
+                <span
+                    class="material-symbols-outlined text-primary-container text-2xl group-hover:scale-110 transition-transform">water_drop</span>
+                <span class="font-headline-md text-headline-md text-on-surface tracking-tight">UnMark</span>
+            </a>
+        </div>
+        <div class="hidden md:flex items-center gap-stack-lg">
+            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#features">Features</a>
+            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#pricing">Pricing</a>
+            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#support">Support</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a class="text-label-md font-label-md text-primary-container hover:text-primary transition-colors"
+                href="#">Sign up</a>
+        </div>
+    </nav>
+    <!-- Split Screen Layout -->
+    <div class="flex flex-col md:flex-row w-full min-h-screen">
+        <!-- Left Side: Image/Branding Area (Hidden on small screens) -->
+        <div
+            class="hidden md:flex md:w-1/2 bg-surface-container-high relative overflow-hidden flex-col justify-between p-margin-desktop">
+            <!-- Decorative Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply"
+                data-alt="A clean, abstract 3D workspace representing digital image processing. Glowing geometric shapes and subtle grid lines in a bright, modern light-mode setting. The palette uses soft whites, light grays, and precise touches of indigo (#4f46e5) to evoke high-tech efficiency and creative freedom. The lighting is soft and diffused."
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoztCfDOaDFn_Hd-GY73CJp7G5QQKeQQIjV-QpisRb-iX5aczKTRSoOchAWTkqzOhtR_aNn4SZ84926Gmwkd3HQ-quVE076FnE2gkR9RzD9DSMyZLe8bzzT-KLnVOfbbo2HAQg-UUqpG-ZljJifdL2GIFjPWQs93Sj_xuh8X8kgmXFAVuYSN16M7Q0zS_c12dtJKBs5u7RokTNYmhcWQKNRAa4U7bTsz9DyxRxh3HWFcf2id8hKng')">
+            </div>
+            <!-- Branding Overlay -->
+            <!-- Value Proposition -->
+            <div class="relative z-10 max-w-md">
+                <h2 class="font-display-lg text-display-lg text-on-surface mb-stack-md">Restore your creative assets.
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Experience seamless, AI-powered image
+                    processing designed for professionals. Fast, precise, and effortless.</p>
+            </div>
+            <!-- Subtle gradient overlay to ensure text readability -->
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-surface-container-high/80 to-transparent pointer-events-none">
+            </div>
+        </div>
+        <!-- Right Side: Login Form Area -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center px-margin-desktop py-stack-lg bg-surface relative">
+            <!-- Mobile Logo (Visible only on small screens) -->
+            <!-- Language Selector (Top Right) -->
+            <div class="absolute top-8 right-8">
+                <div class="relative inline-block text-left group">
+                    <button
+                        class="inline-flex justify-center w-full rounded-md border border-outline-variant shadow-sm px-4 py-2 bg-surface text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors"
+                        type="button">
+                        English
+                        <span class="material-symbols-outlined ml-2 -mr-1 text-[16px]">expand_more</span>
+                    </button>
+                    <!-- Dropdown menu, show/hide based on menu state. -->
+                    <div
+                        class="origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-surface ring-1 ring-black ring-opacity-5 divide-y divide-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div aria-labelledby="options-menu" aria-orientation="vertical" class="py-1" role="menu">
+                            <a class="block px-4 py-2 text-label-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface"
+                                href="#" role="menuitem">Catalan</a>
+                            <a class="block px-4 py-2 text-label-sm text-primary-container font-medium bg-surface-container-low"
+                                href="#" role="menuitem">English</a>
+                            <a class="block px-4 py-2 text-label-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface"
+                                href="#" role="menuitem">Spanish</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Container -->
+            <div class="w-full max-w-md mx-auto">
+                <div class="mb-stack-lg text-center md:text-left">
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Welcome back</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Please enter your details to sign in.
+                    </p>
+                </div>
+                <!-- Social Login Options -->
+                <div class="flex flex-col gap-stack-sm mb-stack-lg">
+                    <button
+                        class="flex items-center justify-center w-full px-4 py-3 border border-outline-variant rounded-lg bg-surface text-label-md font-label-md text-on-surface hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors shadow-sm">
+                        <!-- Google Icon SVG (Simulated) -->
+                        <svg class="w-5 h-5 mr-2" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.67 15.63 16.89 16.79 15.72 17.57V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z"
+                                fill="#4285F4"></path>
+                            <path
+                                d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.72 17.57C14.73 18.23 13.48 18.63 12 18.63C9.13 18.63 6.7 16.71 5.84 14.13H2.17V16.97C3.99 20.57 7.7 23 12 23Z"
+                                fill="#34A853"></path>
+                            <path
+                                d="M5.84 14.13C5.62 13.48 5.49 12.76 5.49 12C5.49 11.24 5.62 10.52 5.84 9.87V7.03H2.17C1.42 8.52 1 10.2 1 12C1 13.8 1.42 15.48 2.17 16.97L5.84 14.13Z"
+                                fill="#FBBC05"></path>
+                            <path
+                                d="M12 5.38C13.62 5.38 15.06 5.93 16.2 7.02L19.36 3.86C17.45 2.08 14.97 1 12 1C7.7 1 3.99 3.43 2.17 7.03L5.84 9.87C6.7 7.29 9.13 5.38 12 5.38Z"
+                                fill="#EA4335"></path>
+                        </svg>
+                        Log in with Google
+                    </button>
+                    <button
+                        class="flex items-center justify-center w-full px-4 py-3 border border-outline-variant rounded-lg bg-surface text-label-md font-label-md text-on-surface hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors shadow-sm">
+                        <!-- Apple Icon SVG (Simulated) -->
+                        <span class="material-symbols-outlined mr-2">devices</span>
+                        Log in with Apple
+                    </button>
+                </div>
+                <div class="relative flex items-center justify-center mb-stack-lg">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-outline-variant"></div>
+                    </div>
+                    <div class="relative bg-surface px-4 text-label-sm font-label-sm text-on-surface-variant uppercase">
+                        Or continue with email
+                    </div>
+                </div>
+                <!-- Login Form -->
+                <form action="#" class="space-y-stack-md" method="POST">
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface mb-1" for="email">Email
+                            address</label>
+                        <input autocomplete="email"
+                            class="appearance-none block w-full px-3 py-3 border border-outline-variant rounded-md shadow-sm placeholder-outline focus:outline-none focus:ring-primary-container focus:border-primary-container text-body-md font-body-md transition-colors bg-surface text-on-surface"
+                            id="email" name="email" placeholder="you@company.com" required="" type="email" />
+                    </div>
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface mb-1"
+                            for="password">Password</label>
+                        <div class="relative">
+                            <input autocomplete="current-password"
+                                class="appearance-none block w-full px-3 py-3 border border-outline-variant rounded-md shadow-sm placeholder-outline focus:outline-none focus:ring-primary-container focus:border-primary-container text-body-md font-body-md transition-colors bg-surface text-on-surface pr-10"
+                                id="password" name="password" placeholder="••••••••" required="" type="password" />
+                            <button
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant transition-colors"
+                                type="button">
+                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                        <div class="flex items-center">
+                            <input
+                                class="h-4 w-4 text-primary-container focus:ring-primary-container border-outline-variant rounded transition-colors bg-surface"
+                                id="remember-me" name="remember-me" type="checkbox" />
+                            <label class="ml-2 block text-label-sm font-label-sm text-on-surface-variant"
+                                for="remember-me">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="text-label-sm font-label-sm">
+                            <a class="font-medium text-primary-container hover:text-primary transition-colors" href="#">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <button
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-label-md font-label-md text-on-primary bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all hover:shadow-md"
+                            type="submit">
+                            Login
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-stack-lg text-center">
+                    <p class="text-body-md font-body-md text-on-surface-variant">
+                        Don't have an account?
+                        <a class="font-medium text-primary-container hover:text-primary transition-colors underline decoration-2 underline-offset-4"
+                            href="#">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

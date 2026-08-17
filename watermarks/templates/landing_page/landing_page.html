@@ -16,7 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet">
     <script src="{% static 'landing_page/tailwind-config.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'landing_page/landing_page.css' %}?v=1.3">
+    <link rel="stylesheet" href="{% static 'landing_page/landing_page.css' %}?v=1.5">
     <style type="text/tailwindcss">
         body {
             background-color: theme('colors.background');
@@ -65,11 +65,10 @@
                             class="block px-4 py-2 text-label-md text-primary bg-surface-container font-semibold">Español</a>
                     </div>
                 </div>
-                <button
-                    class="hidden md:block text-primary dark:text-primary-fixed font-label-md text-label-md hover:text-primary-container transition-colors">Login</button>
-                <button
-                    class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">Get
-                    Started</button>
+                <a href="{% url 'login' %}"
+                    class="hidden md:block text-primary dark:text-primary-fixed font-label-md text-label-md hover:text-primary-container transition-colors">Login</a>
+                <a href="{% url 'login' %}"
+                    class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">Sign in</a>
                 <img alt="User Avatar"
                     class="w-10 h-10 rounded-full border border-outline-variant object-cover hidden sm:block"
                     data-alt="A small, circular, minimalist user avatar showing a smiling person in a brightly lit studio. Professional corporate headshot style."
@@ -83,12 +82,6 @@
         <!-- Hero Section -->
         <section class="w-full flex flex-col md:flex-row items-center gap-gutter">
             <div class="flex-1 flex flex-col items-start gap-stack-md">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant mb-4">
-                    <span class="material-symbols-outlined text-[16px] text-tertiary">auto_awesome</span>
-                    <span class="text-label-sm font-label-sm text-on-surface-variant">Inteligencia Artificial de
-                        Vanguardia</span>
-                </div>
                 <h1 class="text-display-lg font-display-lg text-on-background leading-tight">
                     Protege y Limpia tus Imágenes <br><span class="gradient-text">con IA</span>
                 </h1>

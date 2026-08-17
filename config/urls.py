@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from watermarks.views import landing_page
+from watermarks.views import landing_page, login
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", landing_page, name="landing_page")
+    path("", landing_page, name="landing_page"),
+    path("login/", login, name="login")
 ]
