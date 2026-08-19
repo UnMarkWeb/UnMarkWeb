@@ -5,10 +5,14 @@ from django.contrib import messages
 
 
 def landing_page(request):
-    # if request.user.is_authenticated:
-    #     return redirect("dashboard")
+    if request.user.is_authenticated:
+         return redirect("dashboard_reload")
     return render(request, "landing_page/landing_page.html")
 
+def dashboard_reload(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    return render(request, "dashboard/dashboard.html")
 
 def login(request):
     if request.user.is_authenticated:

@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from watermarks.views import landing_page, login, logout, sign_up
+from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path("login/", login, name="login"),
     path("logout/", logout, name="logout"),
     path("signup/", sign_up, name="signup"),
+    path("dashboard/", dashboard_reload, name="dashboard_reload"),
 ]

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>UnMark - Panel de Control</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dee9fc",
+                        "on-tertiary-fixed": "#25005a",
+                        "secondary-fixed": "#89f5e7",
+                        "primary": "#3525cd",
+                        "secondary-container": "#86f2e4",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#121c2a",
+                        "on-primary-container": "#dad7ff",
+                        "on-surface-variant": "#464555",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "tertiary": "#5c00ca",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d9e3f6",
+                        "inverse-primary": "#c3c0ff",
+                        "on-tertiary-container": "#e4d4ff",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "on-error-container": "#93000a",
+                        "outline": "#777587",
+                        "on-primary-fixed": "#0f0069",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#7531e6",
+                        "on-secondary-fixed-variant": "#005049",
+                        "surface-container-low": "#eff4ff",
+                        "primary-container": "#4f46e5",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-surface": "#121c2a",
+                        "surface-container": "#e6eeff",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-highest": "#d9e3f6",
+                        "inverse-surface": "#27313f",
+                        "surface-dim": "#d0dbed",
+                        "secondary": "#006a61",
+                        "outline-variant": "#c7c4d8",
+                        "on-secondary-fixed": "#00201d",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#eaddff",
+                        "surface": "#f8f9ff",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-container": "#006f66",
+                        "surface-bright": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "stack-sm": "8px",
+                        "base": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased h-screen flex overflow-hidden">
+    <!-- SideNavBar -->
+    <nav
+        class="hidden md:flex flex-col h-screen p-stack-md sticky top-0 w-64 bg-surface-container-low border-r border-outline-variant shrink-0">
+        <div class="mb-stack-lg flex items-center gap-3">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
+            
+                <h1 class="text-headline-md font-headline-md text-primary tracking-tight">UnMark</h1>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 flex-grow">
+            <a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold transition-transform scale-95"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span class="text-label-md font-label-md">Dashboard</span>
+            </a>
+            <!-- Active Tab: Tools -->
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_square</span>
+                <span class="text-label-md font-label-md">Tools</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">photo_library</span>
+                <span class="text-label-md font-label-md">Library</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">person</span>
+                <span class="text-label-md font-label-md">Account</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">workspace_premium</span>
+                <span class="text-label-md font-label-md">Subscription</span>
+            </a>
+        </div>
+        <div class="mt-auto flex flex-col gap-2 pt-stack-md border-t border-outline-variant">
+            <div class="relative group px-4 py-3">
+                <button
+                    class="flex items-center gap-3 w-full text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150">
+                    <span class="material-symbols-outlined">language</span>
+                    <span class="text-label-md font-label-md flex-1 text-left">Español</span>
+                    <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                </button>
+                <!-- Subtle Dropdown Menu -->
+                <div
+                    class="absolute bottom-full left-4 mb-2 w-48 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20 overflow-hidden">
+                    <a href="#"
+                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors">Català</a>
+                    <a href="#"
+                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors font-bold bg-primary-container/10">Español</a>
+                    <a href="#"
+                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors">English</a>
+                </div>
+            </div>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="text-label-md font-label-md">Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">help_outline</span>
+                <span class="text-label-md font-label-md">Help</span>
+            </a>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 overflow-y-auto bg-background p-margin-desktop w-full max-w-container-max mx-auto">
+        <!-- Header -->
+        <header class="mb-stack-lg flex justify-between items-end">
+            <div>
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mb-2 tracking-tight">Hola, Bienvenido de
+                    nuevo</h2>
+                <p class="text-body-md font-body-md text-on-surface-variant">Listo para procesar tus imágenes hoy.</p>
+            </div>
+            <!-- Subscription Widget -->
+            <div
+                class="bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] rounded-[24px] p-4 flex items-center gap-4 border border-outline-variant/30">
+                <div class="flex flex-col">
+                    <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Plan
+                        Actual</span>
+                    <span class="text-body-md font-body-md font-semibold text-on-surface">Plan Normal</span>
+                </div>
+                <button
+                    class="bg-surface-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full text-label-md font-label-md transition-colors border border-outline-variant/50">
+                    Mejorar Plan
+                </button>
+            </div>
+        </header>
+        <!-- Quick Actions -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-lg">
+            <button
+                class="group flex flex-col items-center justify-center p-stack-lg bg-surface-container-lowest border-2 border-dashed border-outline-variant/50 hover:border-tertiary rounded-[24px] transition-colors min-h-[200px] cursor-pointer shadow-[0px_4px_20px_rgba(0,0,0,0.05)] relative overflow-hidden">
+                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="material-symbols-outlined text-display-lg text-primary mb-3">add_photo_alternate</span>
+                <span class="text-headline-md font-headline-md text-on-surface">Añadir Marca de Agua</span>
+                <span class="text-body-sm text-on-surface-variant mt-2">Sube imágenes para protegerlas</span>
+            </button>
+            <button
+                class="group flex flex-col items-center justify-center p-stack-lg bg-surface-container-lowest border-2 border-dashed border-outline-variant/50 hover:border-tertiary rounded-[24px] transition-colors min-h-[200px] cursor-pointer shadow-[0px_4px_20px_rgba(0,0,0,0.05)] relative overflow-hidden">
+                <div class="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span class="material-symbols-outlined text-display-lg text-secondary mb-3">auto_awesome</span>
+                <span class="text-headline-md font-headline-md text-on-surface">Quitar Marca de Agua</span>
+                <span class="text-body-sm text-on-surface-variant mt-2">IA avanzada para limpieza</span>
+            </button>
+        </section>
+        <!-- Recent Activity -->
+        <section>
+            <h3 class="text-headline-md font-headline-md text-on-surface mb-stack-md">Actividad Reciente</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <!-- Card 1: Completed -->
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                        Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative">
+                        <img class="w-full h-full object-cover"
+                            data-alt="A serene landscape photography showing misty mountains at dawn. The image has a very clean, professional aesthetic with high contrast between the dark pine trees and the bright morning fog. Soft, diffused lighting creates a calm mood, perfectly suited for a modern minimal UI setting. The scene is free of any text or watermarks."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrFTSpzkAXVzhoS1vJhxsuRwF9P5Bsy3Mz-1j-4S5qi_9pskOPqCL74gz51QTkDPvyBAAcblw9nzebwfgjdy1QgH02jztIZ-hEKLIA9bdX7AFlwT-3VRRNeoBaYF__QQULczW7dke1_GuQaj2UbxjYAFt0LF4GyqhFB86-Oi-TGQAbIH6FgiZ5S9TN_djvUv-3m0udzA94aA7Fdh8A7rMa5DSPZhaKNfTBf-GpBiE6qhpo635S0GU">
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">paisaje_montana_final.jpg</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Hace 2 horas</p>
+                        </div>
+                        <button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">download</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 2: Processing -->
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-tertiary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] animate-spin">sync</span>
+                        En proceso
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative overflow-hidden">
+                        <img class="w-full h-full object-cover opacity-60"
+                            data-alt="A modern architectural photograph of a sleek glass building facade reflecting a bright blue sky. The composition is highly geometric and minimal. The image looks slightly desaturated, fitting a high-tech corporate aesthetic. It appears as if it is currently being processed by an AI algorithm."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAnCgMnTaJhnK9rvXCZGo7HzWiJLZ4Yc-Do-r5z-uEC6rz6nEqGP94HA4m4i5GQvJVrvlge7GH8TF09NyeMfyvn8RpJvlHSBl3Dy4QvOvcHX5RuqIzdUr6WpM4n9in1fYwgpsE6egYCPmwUx3rvkAz7ffjlff_5BZ-9-2jIV4UCOZRl5VaS6Kb0VO2wtpFHSAJ-JjIbDeYvr1jyqU0Y7SWNzaMdmef_k8sWcX0JvtoZGlL2dCG-2E">
+                        <!-- Processing overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent flex items-end p-4">
+                            <div class="w-full h-2 bg-outline-variant/30 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full w-2/3 relative">
+                                    <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">arquitectura_cristal.png</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Procesando IA...</p>
+                        </div>
+                        <button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant cursor-not-allowed opacity-50">
+                            <span class="material-symbols-outlined text-[18px]">download</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 3: Completed -->
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                        Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative">
+                        <img class="w-full h-full object-cover"
+                            data-alt="A close-up product shot of a sleek, modern smartphone lying on a minimalist white desk. The lighting is studio quality, creating soft reflections on the screen. The aesthetic is clean, professional, and corporate, emphasizing high-tech efficiency. The image is crisp and ready for commercial use."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5oxIlPHcrJk_PhP_sd30IH5Df4_fSQFU4Ob0DzFUIG59KGjJMy0lH_gds9gScFhJQjbYt4G3yFx-KdW3h0aXUMItbsDNqL9ZDJo6SLUS2PsUjfwrudYm9iyKLp9fPcnxapNe13oe5KrU-WQ8mY4qRSJafVbQD5nMPWgac30IpUA1Vp7jmzNgU9k-LXJKeqjJEASg3pPIO9uYotgaz8Zi6-gOjnCMWdVw8Z-ftzVMCVrJ8bgYbJZQ">
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">producto_movil_clean.jpg</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Ayer</p>
+                        </div>
+                        <button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">download</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</body>
+
+</html>
