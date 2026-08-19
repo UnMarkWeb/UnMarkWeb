@@ -28,7 +28,7 @@
     <nav
         class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant px-margin-desktop py-4 flex items-center justify-between">
         <div class="flex items-center gap-2">
-            <a class="flex items-center gap-2 group" href="/">
+            <a class="flex items-center gap-2 group" href="{% url 'landing_page' %}">
                 <span
                     class="material-symbols-outlined text-primary-container text-2xl group-hover:scale-110 transition-transform">water_drop</span>
                 <span class="font-headline-md text-headline-md text-on-surface tracking-tight">UnMark</span>
@@ -36,15 +36,15 @@
         </div>
         <div class="hidden md:flex items-center gap-stack-lg">
             <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="#features">Features</a>
+                href="{% url 'landing_page' %}#features">Features</a>
             <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="#pricing">Pricing</a>
+                href="{% url 'landing_page' %}#pricing">Pricing</a>
             <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="#support">Support</a>
+                href="{% url 'landing_page' %}#support">Support</a>
         </div>
         <div class="flex items-center gap-4">
-            <a class="text-label-md font-label-md text-primary-container hover:text-primary transition-colors"
-                href="#">Sign up</a>
+            <a class="text-label-md font-label-md text-primary-container hover:text-primary transition-colors font-medium"
+                href="{% url 'signup' %}">Sign up</a>
         </div>
     </nav>
     <!-- Split Screen Layout -->
@@ -57,7 +57,6 @@
                 data-alt="A clean, abstract 3D workspace representing digital image processing. Glowing geometric shapes and subtle grid lines in a bright, modern light-mode setting. The palette uses soft whites, light grays, and precise touches of indigo (#4f46e5) to evoke high-tech efficiency and creative freedom. The lighting is soft and diffused."
                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoztCfDOaDFn_Hd-GY73CJp7G5QQKeQQIjV-QpisRb-iX5aczKTRSoOchAWTkqzOhtR_aNn4SZ84926Gmwkd3HQ-quVE076FnE2gkR9RzD9DSMyZLe8bzzT-KLnVOfbbo2HAQg-UUqpG-ZljJifdL2GIFjPWQs93Sj_xuh8X8kgmXFAVuYSN16M7Q0zS_c12dtJKBs5u7RokTNYmhcWQKNRAa4U7bTsz9DyxRxh3HWFcf2id8hKng')">
             </div>
-            <!-- Branding Overlay -->
             <!-- Value Proposition -->
             <div class="relative z-10 max-w-md">
                 <h2 class="font-display-lg text-display-lg text-on-surface mb-stack-md">Restore your creative assets.
@@ -72,7 +71,6 @@
         </div>
         <!-- Right Side: Login Form Area -->
         <div class="w-full md:w-1/2 flex flex-col justify-center px-margin-desktop py-stack-lg bg-surface relative">
-            <!-- Mobile Logo (Visible only on small screens) -->
             <!-- Language Selector (Top Right) -->
             <div class="absolute top-8 right-8">
                 <div class="relative inline-block text-left group">
@@ -103,6 +101,21 @@
                     <p class="font-body-md text-body-md text-on-surface-variant">Please enter your details to sign in.
                     </p>
                 </div>
+
+                <!-- Messages / Errors -->
+                {% if messages %}
+                <div class="space-y-2 mb-stack-md">
+                    {% for message in messages %}
+                    <div class="p-3 rounded-lg text-body-md flex items-center gap-2 {% if message.tags == 'error' %}bg-error-container text-on-error-container border border-error/20{% else %}bg-secondary-container text-on-secondary-container{% endif %}">
+                        <span class="material-symbols-outlined text-[20px]">
+                            {% if message.tags == 'error' %}error{% else %}check_circle{% endif %}
+                        </span>
+                        <span>{{ message }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
                 <!-- Social Login Options -->
                 <div class="flex flex-col gap-stack-sm mb-stack-lg">
                     <button
@@ -140,13 +153,14 @@
                     </div>
                 </div>
                 <!-- Login Form -->
-                <form action="#" class="space-y-stack-md" method="POST">
+                <form action="{% url 'login' %}" class="space-y-stack-md" method="POST">
+                    {% csrf_token %}
                     <div>
                         <label class="block text-label-md font-label-md text-on-surface mb-1" for="email">Email
                             address</label>
                         <input autocomplete="email"
                             class="appearance-none block w-full px-3 py-3 border border-outline-variant rounded-md shadow-sm placeholder-outline focus:outline-none focus:ring-primary-container focus:border-primary-container text-body-md font-body-md transition-colors bg-surface text-on-surface"
-                            id="email" name="email" placeholder="you@company.com" required="" type="email" />
+                            id="email" name="email" placeholder="you@company.com" value="{{ email|default:'' }}" required="" type="email" />
                     </div>
                     <div>
                         <label class="block text-label-md font-label-md text-on-surface mb-1"
@@ -157,7 +171,7 @@
                                 id="password" name="password" placeholder="••••••••" required="" type="password" />
                             <button
                                 class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant transition-colors"
-                                type="button">
+                                type="button" onclick="togglePasswordVisibility('password', this)">
                                 <span class="material-symbols-outlined text-[20px]">visibility</span>
                             </button>
                         </div>
@@ -165,9 +179,9 @@
                     <div class="flex items-center justify-between mt-2">
                         <div class="flex items-center">
                             <input
-                                class="h-4 w-4 text-primary-container focus:ring-primary-container border-outline-variant rounded transition-colors bg-surface"
+                                class="h-4 w-4 text-primary-container focus:ring-primary-container border-outline-variant rounded transition-colors bg-surface cursor-pointer"
                                 id="remember-me" name="remember-me" type="checkbox" />
-                            <label class="ml-2 block text-label-sm font-label-sm text-on-surface-variant"
+                            <label class="ml-2 block text-label-sm font-label-sm text-on-surface-variant cursor-pointer"
                                 for="remember-me">
                                 Remember me
                             </label>
@@ -180,7 +194,7 @@
                     </div>
                     <div class="pt-2">
                         <button
-                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-label-md font-label-md text-on-primary bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all hover:shadow-md"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-label-md font-label-md text-on-primary bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all hover:shadow-md cursor-pointer"
                             type="submit">
                             Login
                         </button>
@@ -190,12 +204,26 @@
                     <p class="text-body-md font-body-md text-on-surface-variant">
                         Don't have an account?
                         <a class="font-medium text-primary-container hover:text-primary transition-colors underline decoration-2 underline-offset-4"
-                            href="#">Sign up</a>
+                            href="{% url 'signup' %}">Sign up</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+    </script>
 </body>
 
 </html>

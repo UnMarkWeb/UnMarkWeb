@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign Up - UnMark</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="{% static 'sing_up/tailwind-config.js' %}"></script>
+</head>
+
+<body
+    class="bg-background text-on-background min-h-screen flex selection:bg-primary-container selection:text-on-primary-container flex-col">
+    <nav class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant">
+        <div class="max-w-container-max mx-auto px-gutter h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2 group" href="{% url 'landing_page' %}">
+                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform"
+                        data-icon="water_drop">water_drop</span>
+                    <span class="font-headline-md text-headline-md text-on-surface tracking-tight">UnMark</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="{% url 'landing_page' %}#features">Features</a>
+                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="{% url 'landing_page' %}#pricing">Pricing</a>
+                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="{% url 'landing_page' %}#support">Support</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors"
+                    href="{% url 'login' %}">Sign in</a>
+                <a href="{% url 'signup' %}"
+                    class="bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-all shadow-sm">Get
+                    Started</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Split Layout Container -->
+    <main class="flex w-full flex-1">
+        <!-- Left Column: Branding / Visual (Hidden on mobile) -->
+        <div class="hidden lg:flex w-1/2 relative bg-surface-container-low overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center"
+                data-alt="A striking abstract digital art piece featuring flowing, generative geometric shapes in deep indigo and subtle white tones. The composition represents high-tech efficiency and creative freedom, illuminated by soft white lighting that creates a modern, light-mode aesthetic. The mood is serene, professional, and technologically advanced, perfectly capturing a modern creative workspace."
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGDZ1mPkBccc3WwjPGrfelyvzSlpIjB8Odne7N9ZdIwPqsKK_ij17L_EJLWpQfBR_8rCDvqROwYgE2UM8HHxiht6cfhz5X3Nk5Pnhr6lQZPWwwWQsUB45vTEpqUtRPculqswdjTISKk2qSmmvA526ZTkdWYwGMKVpQkou54G8tIWXhBUkwNuxvYm8R8lwBKCSjjngr-xeFyJ1FKTvjsdWSyNvxWO_Fh4w37nMtizq7fYLG_bHKgyM')">
+            </div>
+            <!-- Overlay to ensure text readability if needed, though mostly visual -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-tertiary-container/80 mix-blend-multiply">
+            </div>
+            <div class="relative z-10 flex flex-col justify-between p-margin-desktop w-full text-on-primary h-full">
+                <div>
+                    <h1
+                        class="font-headline-lg text-headline-lg font-bold tracking-tight text-white flex items-center gap-3">
+                        <span class="material-symbols-outlined text-4xl" data-icon="water_drop">water_drop</span>
+                        UnMark
+                    </h1>
+                </div>
+                <div class="max-w-md">
+                    <p class="font-display-lg text-[40px] leading-tight font-bold text-white mb-stack-md">Professional
+                        image processing, simplified.</p>
+                    <p class="font-body-lg text-body-lg text-primary-fixed opacity-90">Join thousands of creators who
+                        trust UnMark to enhance their digital workspace with precision and ease.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Right Column: Form -->
+        <div
+            class="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 sm:p-12 lg:p-margin-desktop bg-surface relative">
+            <!-- Language Selector (Top Right) -->
+            <div class="absolute top-8 right-8 z-20">
+                <div class="relative inline-block text-left group">
+                    <button aria-expanded="true" aria-haspopup="true"
+                        class="inline-flex justify-center w-full rounded-lg border border-outline-variant shadow-sm px-4 py-2 bg-surface text-label-md font-label-md text-on-surface-variant hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors"
+                        id="options-menu" type="button">
+                        <span class="material-symbols-outlined mr-2 text-[18px]" data-icon="language">language</span>
+                        EN
+                        <span class="material-symbols-outlined ml-2 -mr-1 text-[18px]"
+                            data-icon="expand_more">expand_more</span>
+                    </button>
+                    <!-- Dropdown panel -->
+                    <div
+                        class="origin-top-right absolute right-0 mt-2 w-32 rounded-lg shadow-lg bg-surface-container-lowest ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div aria-labelledby="options-menu" aria-orientation="vertical" class="py-1" role="menu">
+                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
+                                href="#" role="menuitem">English</a>
+                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
+                                href="#" role="menuitem">Español</a>
+                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
+                                href="#" role="menuitem">Català</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Container -->
+            <div class="w-full max-w-md space-y-stack-lg">
+                <!-- Mobile Branding (Visible only on mobile) -->
+                <div class="lg:hidden text-center mb-stack-lg">
+                    <h1
+                        class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary flex items-center justify-center gap-3">
+                        <span class="material-symbols-outlined text-4xl" data-icon="water_drop">water_drop</span>
+                        UnMark
+                    </h1>
+                </div>
+                <div class="text-center lg:text-left">
+                    <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Create an account</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Start your free trial today. No credit
+                        card required.</p>
+                </div>
+
+                <!-- Messages / Errors -->
+                {% if messages %}
+                <div class="space-y-2">
+                    {% for message in messages %}
+                    <div class="p-3 rounded-lg text-body-md flex items-center gap-2 {% if message.tags == 'error' %}bg-error-container text-on-error-container border border-error/20{% else %}bg-secondary-container text-on-secondary-container{% endif %}">
+                        <span class="material-symbols-outlined text-[20px]">
+                            {% if message.tags == 'error' %}error{% else %}check_circle{% endif %}
+                        </span>
+                        <span>{{ message }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <form action="{% url 'signup' %}" class="space-y-stack-md" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="name">Full
+                            Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-outline" data-icon="person">person</span>
+                            </div>
+                            <input autocomplete="name"
+                                class="appearance-none rounded-lg relative block w-full pl-10 pr-3 py-3 border border-outline-variant placeholder-outline text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-primary-container font-body-md text-body-md bg-surface-container-lowest transition-colors"
+                                id="name" name="name" placeholder="Alex Jensen" value="{{ name|default:'' }}" required="" type="text" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="email-address">Email
+                            address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-outline" data-icon="mail">mail</span>
+                            </div>
+                            <input autocomplete="email"
+                                class="appearance-none rounded-lg relative block w-full pl-10 pr-3 py-3 border border-outline-variant placeholder-outline text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-primary-container font-body-md text-body-md bg-surface-container-lowest transition-colors"
+                                id="email-address" name="email" placeholder="alex@example.com" value="{{ email|default:'' }}" required=""
+                                type="email" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-label-md text-on-surface mb-1"
+                            for="password">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
+                            </div>
+                            <input autocomplete="new-password"
+                                class="appearance-none rounded-lg relative block w-full pl-10 pr-10 py-3 border border-outline-variant placeholder-outline text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-primary-container font-body-md text-body-md bg-surface-container-lowest transition-colors"
+                                id="password" name="password" placeholder="••••••••" required="" type="password" />
+                            <button
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface-variant transition-colors"
+                                type="button" onclick="togglePasswordVisibility('password', this)">
+                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input
+                            class="h-5 w-5 text-primary-container focus:ring-primary-container border-outline-variant rounded bg-surface-container-lowest transition-colors cursor-pointer"
+                            id="terms" name="terms" required="" type="checkbox" />
+                        <label class="ml-3 block font-body-md text-body-md text-on-surface-variant cursor-pointer"
+                            for="terms">
+                            I agree to the <a
+                                class="font-label-md text-primary hover:text-primary-container underline transition-colors"
+                                href="#">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    <div>
+                        <button
+                            class="group relative w-full flex justify-center py-3 px-4 border border-transparent font-label-md text-label-md rounded-lg text-white bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+                            type="submit">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                <div class="text-center font-body-md text-body-md text-on-surface-variant mt-stack-lg">
+                    Already have an account?
+                    <a class="font-label-md text-primary hover:text-primary-container transition-colors font-medium" href="{% url 'login' %}">Sign
+                        in</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+    </script>
+</body>
+
+</html>
