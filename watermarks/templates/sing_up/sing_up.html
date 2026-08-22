@@ -23,32 +23,8 @@
 
 <body
     class="bg-background text-on-background min-h-screen flex selection:bg-primary-container selection:text-on-primary-container flex-col">
-    <nav class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-gutter h-16 flex items-center justify-between">
-            <div class="flex items-center gap-8">
-                <a class="flex items-center gap-2 group" href="{% url 'landing_page' %}">
-                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform"
-                        data-icon="water_drop">water_drop</span>
-                    <span class="font-headline-md text-headline-md text-on-surface tracking-tight">UnMark</span>
-                </a>
-                <div class="hidden md:flex items-center gap-6">
-                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-                        href="{% url 'landing_page' %}#features">Features</a>
-                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-                        href="{% url 'landing_page' %}#pricing">Pricing</a>
-                    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-                        href="{% url 'landing_page' %}#support">Support</a>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors"
-                    href="{% url 'login' %}">Sign in</a>
-                <a href="{% url 'signup' %}"
-                    class="bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-all shadow-sm">Get
-                    Started</a>
-            </div>
-        </div>
-    </nav>
+    <!-- TopNavBar -->
+    {% include 'header_landing.html' %}
     <!-- Split Layout Container -->
     <main class="flex w-full flex-1">
         <!-- Left Column: Branding / Visual (Hidden on mobile) -->
@@ -80,31 +56,6 @@
         <!-- Right Column: Form -->
         <div
             class="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 sm:p-12 lg:p-margin-desktop bg-surface relative">
-            <!-- Language Selector (Top Right) -->
-            <div class="absolute top-8 right-8 z-20">
-                <div class="relative inline-block text-left group">
-                    <button aria-expanded="true" aria-haspopup="true"
-                        class="inline-flex justify-center w-full rounded-lg border border-outline-variant shadow-sm px-4 py-2 bg-surface text-label-md font-label-md text-on-surface-variant hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors"
-                        id="options-menu" type="button">
-                        <span class="material-symbols-outlined mr-2 text-[18px]" data-icon="language">language</span>
-                        EN
-                        <span class="material-symbols-outlined ml-2 -mr-1 text-[18px]"
-                            data-icon="expand_more">expand_more</span>
-                    </button>
-                    <!-- Dropdown panel -->
-                    <div
-                        class="origin-top-right absolute right-0 mt-2 w-32 rounded-lg shadow-lg bg-surface-container-lowest ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div aria-labelledby="options-menu" aria-orientation="vertical" class="py-1" role="menu">
-                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
-                                href="#" role="menuitem">English</a>
-                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
-                                href="#" role="menuitem">Español</a>
-                            <a class="block px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant hover:text-primary transition-colors"
-                                href="#" role="menuitem">Català</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- Form Container -->
             <div class="w-full max-w-md space-y-stack-lg">
                 <!-- Mobile Branding (Visible only on mobile) -->

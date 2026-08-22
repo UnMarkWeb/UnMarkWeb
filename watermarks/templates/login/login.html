@@ -25,28 +25,8 @@
 
 <body
     class="bg-background min-h-screen flex text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary flex-col">
-    <nav
-        class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant px-margin-desktop py-4 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-            <a class="flex items-center gap-2 group" href="{% url 'landing_page' %}">
-                <span
-                    class="material-symbols-outlined text-primary-container text-2xl group-hover:scale-110 transition-transform">water_drop</span>
-                <span class="font-headline-md text-headline-md text-on-surface tracking-tight">UnMark</span>
-            </a>
-        </div>
-        <div class="hidden md:flex items-center gap-stack-lg">
-            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="{% url 'landing_page' %}#features">Features</a>
-            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="{% url 'landing_page' %}#pricing">Pricing</a>
-            <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="{% url 'landing_page' %}#support">Support</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <a class="text-label-md font-label-md text-primary-container hover:text-primary transition-colors font-medium"
-                href="{% url 'signup' %}">Sign up</a>
-        </div>
-    </nav>
+    <!-- TopNavBar -->
+    {% include 'header_landing.html' %}
     <!-- Split Screen Layout -->
     <div class="flex flex-col md:flex-row w-full min-h-screen">
         <!-- Left Side: Image/Branding Area (Hidden on small screens) -->
@@ -71,29 +51,6 @@
         </div>
         <!-- Right Side: Login Form Area -->
         <div class="w-full md:w-1/2 flex flex-col justify-center px-margin-desktop py-stack-lg bg-surface relative">
-            <!-- Language Selector (Top Right) -->
-            <div class="absolute top-8 right-8">
-                <div class="relative inline-block text-left group">
-                    <button
-                        class="inline-flex justify-center w-full rounded-md border border-outline-variant shadow-sm px-4 py-2 bg-surface text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors"
-                        type="button">
-                        English
-                        <span class="material-symbols-outlined ml-2 -mr-1 text-[16px]">expand_more</span>
-                    </button>
-                    <!-- Dropdown menu, show/hide based on menu state. -->
-                    <div
-                        class="origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-surface ring-1 ring-black ring-opacity-5 divide-y divide-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div aria-labelledby="options-menu" aria-orientation="vertical" class="py-1" role="menu">
-                            <a class="block px-4 py-2 text-label-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface"
-                                href="#" role="menuitem">Catalan</a>
-                            <a class="block px-4 py-2 text-label-sm text-primary-container font-medium bg-surface-container-low"
-                                href="#" role="menuitem">English</a>
-                            <a class="block px-4 py-2 text-label-sm text-on-surface-variant hover:bg-surface-variant hover:text-on-surface"
-                                href="#" role="menuitem">Spanish</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- Form Container -->
             <div class="w-full max-w-md mx-auto">
                 <div class="mb-stack-lg text-center md:text-left">
