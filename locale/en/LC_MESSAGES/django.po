@@ -1,0 +1,394 @@
+# English translations for UnMark.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: UnMarkWeb 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-22 14:07+0000\n"
+"PO-Revision-Date: 2026-08-22 16:00+0200\n"
+"Last-Translator: Norbert\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config/settings.py:113
+msgid "Català"
+msgstr "Catalan"
+
+#: config/settings.py:114
+msgid "Español"
+msgstr "Spanish"
+
+#: config/settings.py:115
+msgid "English"
+msgstr "English"
+
+#: watermarks/templates/header_landing.html:12
+msgid "Preus"
+msgstr "Pricing"
+
+#: watermarks/templates/header_landing.html:14
+msgid "Característiques"
+msgstr "Features"
+
+#: watermarks/templates/header_landing.html:16
+msgid "Suport"
+msgstr "Support"
+
+#: watermarks/templates/header_landing.html:52
+msgid "Tancar sessió"
+msgstr "Logout"
+
+#: watermarks/templates/header_landing.html:55
+#: watermarks/templates/login/login.html:155
+msgid "Iniciar sessió"
+msgstr "Login"
+
+#: watermarks/templates/header_landing.html:57
+msgid "Registrar-se"
+msgstr "Sign up"
+
+#: watermarks/templates/landing_page/landing_page.html:9
+msgid "UnMark - Protegeix i Neteja les teves Imatges amb IA"
+msgstr "UnMark - Protect and Clean your Images with AI"
+
+#: watermarks/templates/landing_page/landing_page.html:59
+msgid "Protegeix i Neteja les teves Imatges"
+msgstr "Protect and Clean your Images"
+
+#: watermarks/templates/landing_page/landing_page.html:59
+msgid "amb IA"
+msgstr "with AI"
+
+#: watermarks/templates/landing_page/landing_page.html:62
+msgid ""
+"Afegeix marques d'aigua professionals per protegir la teva feina o elimina-"
+"les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. "
+"El control total de les teves imatges, a l'abast d'un clic."
+msgstr ""
+"Add professional watermarks to protect your work or remove them with surgical "
+"precision using our advanced AI technology. Total control of your images, just "
+"one click away."
+
+#: watermarks/templates/landing_page/landing_page.html:67
+msgid "Començar Gratis"
+msgstr "Get Started Free"
+
+#: watermarks/templates/landing_page/landing_page.html:73
+msgid "Veure Demo"
+msgstr "Watch Demo"
+
+#: watermarks/templates/landing_page/landing_page.html:84
+msgid "Amb marca"
+msgstr "Watermarked"
+
+#: watermarks/templates/landing_page/landing_page.html:89
+msgid "Original"
+msgstr "Original"
+
+#: watermarks/templates/landing_page/landing_page.html:92
+msgid "Sense marca"
+msgstr "Clean"
+
+#: watermarks/templates/landing_page/landing_page.html:97
+msgid "Processada"
+msgstr "Processed"
+
+#: watermarks/templates/landing_page/landing_page.html:114
+msgid "Eines Professionals, Ús Simple"
+msgstr "Professional Tools, Simple to Use"
+
+#: watermarks/templates/landing_page/landing_page.html:115
+msgid ""
+"La nostra plataforma està dissenyada amb un enfocament minimalista perquè la "
+"tecnologia treballi per tu, no en contra teva."
+msgstr ""
+"Our platform is crafted with a minimalist approach so technology works for "
+"you, not against you."
+
+#: watermarks/templates/landing_page/landing_page.html:124
+msgid "Protecció Personalitzada"
+msgstr "Custom Protection"
+
+#: watermarks/templates/landing_page/landing_page.html:126
+msgid ""
+"Afegeix logotips, text o patrons repetitius. Ajusta l'opacitat, escala i "
+"posició amb la nostra interfície d'arrossegar i deixar anar per assegurar "
+"els teus drets d'autor sense arruïnar la composició."
+msgstr ""
+"Add logos, text, or repeating patterns. Adjust opacity, scale, and position "
+"with our intuitive drag-and-drop interface to secure your copyright without "
+"ruining the composition."
+
+#: watermarks/templates/landing_page/landing_page.html:135
+msgid "Eliminació Precisa (IA)"
+msgstr "Precise Removal (AI)"
+
+#: watermarks/templates/landing_page/landing_page.html:137
+msgid ""
+"La nostra xarxa neuronal analitza els píxels circumdants per reconstruir el "
+"fons ocult darrere de marques d'aigua, textos molestos o segells de data, "
+"deixant un resultat indistingible de l'original."
+msgstr ""
+"Our neural network inspects surrounding pixels to reconstruct the background "
+"hidden beneath watermarks, intrusive text, or date stamps, leaving a result "
+"indistinguishable from the original."
+
+#: watermarks/templates/landing_page/landing_page.html:145
+msgid "PRO"
+msgstr "PRO"
+
+#: watermarks/templates/landing_page/landing_page.html:149
+msgid "Processament per Lots"
+msgstr "Batch Processing"
+
+#: watermarks/templates/landing_page/landing_page.html:151
+msgid ""
+"Puja dotzenes d'imatges alhora. Aplica la teva marca d'aigua estàndard o "
+"neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos "
+"de treball d'alt volum."
+msgstr ""
+"Upload dozens of images simultaneously. Apply your standard watermark or "
+"clean entire folders in seconds. Technical efficiency engineered for high-"
+"volume workflows."
+
+#: watermarks/templates/landing_page/landing_page.html:166
+msgid "Arrossega les teves imatges aquí"
+msgstr "Drag and drop your images here"
+
+#: watermarks/templates/landing_page/landing_page.html:167
+msgid "PNG, JPG, WEBP fins a 10MB. Processament segur al núvol."
+msgstr "PNG, JPG, WEBP up to 10MB. Secure cloud processing."
+
+#: watermarks/templates/landing_page/landing_page.html:170
+msgid "Explorar Fitxers"
+msgstr "Browse Files"
+
+#: watermarks/templates/landing_page/landing_page.html:176
+msgid "Plans Simples i Transparents"
+msgstr "Simple & Transparent Pricing"
+
+#: watermarks/templates/landing_page/landing_page.html:178
+msgid "Comença gratis o desbloqueja tot el poder per a professionals creatius."
+msgstr "Start for free or unlock the full power for creative professionals."
+
+#: watermarks/templates/landing_page/landing_page.html:184
+msgid "Bàsic"
+msgstr "Basic"
+
+#: watermarks/templates/landing_page/landing_page.html:185
+msgid "Gratis"
+msgstr "Free"
+
+#: watermarks/templates/landing_page/landing_page.html:186
+msgid "Perfecte per a proves ocasionals."
+msgstr "Perfect for occasional testing."
+
+#: watermarks/templates/landing_page/landing_page.html:191
+msgid "Processa 1 imatge a la vegada"
+msgstr "Process 1 image at a time"
+
+#: watermarks/templates/landing_page/landing_page.html:195
+msgid "Resolució estàndard (1080p)"
+msgstr "Standard resolution (1080p)"
+
+#: watermarks/templates/landing_page/landing_page.html:199
+msgid "Fins a 3 marques d'aigua guardades"
+msgstr "Up to 3 saved watermarks"
+
+#: watermarks/templates/landing_page/landing_page.html:203
+msgid "Pla Actual"
+msgstr "Current Plan"
+
+#: watermarks/templates/landing_page/landing_page.html:210
+msgid "Recomanat"
+msgstr "Recommended"
+
+#: watermarks/templates/landing_page/landing_page.html:211
+msgid "Pro"
+msgstr "Pro"
+
+#: watermarks/templates/landing_page/landing_page.html:213
+msgid "mes"
+msgstr "month"
+
+#: watermarks/templates/landing_page/landing_page.html:214
+msgid "Per a creadors i agències."
+msgstr "For creators and agencies."
+
+#: watermarks/templates/landing_page/landing_page.html:218
+msgid "Processament per lots il·limitat"
+msgstr "Unlimited batch processing"
+
+#: watermarks/templates/landing_page/landing_page.html:222
+msgid "Descàrrega en resolució original (4K+)"
+msgstr "Original resolution download (4K+)"
+
+#: watermarks/templates/landing_page/landing_page.html:226
+msgid "Plantilles de marques d'aigua il·limitades"
+msgstr "Unlimited watermark templates"
+
+#: watermarks/templates/landing_page/landing_page.html:230
+msgid "Suport prioritari"
+msgstr "Priority support"
+
+#: watermarks/templates/landing_page/landing_page.html:234
+msgid "Subscriure's al Pro"
+msgstr "Subscribe to Pro"
+
+#: watermarks/templates/landing_page/landing_page.html:250
+msgid "Termes"
+msgstr "Terms"
+
+#: watermarks/templates/landing_page/landing_page.html:252
+msgid "Privadesa"
+msgstr "Privacy"
+
+#: watermarks/templates/landing_page/landing_page.html:254
+msgid "Contacte"
+msgstr "Contact"
+
+#: watermarks/templates/landing_page/landing_page.html:259
+msgid "© 2026 UnMark AI. Tots els drets reservats."
+msgstr "© 2026 UnMark AI. All rights reserved."
+
+#: watermarks/templates/login/login.html:10
+msgid "Iniciar Sessió - UnMark AI"
+msgstr "Login - UnMark AI"
+
+#: watermarks/templates/login/login.html:43
+msgid "Restaura els teus actius creatius."
+msgstr "Restore your creative assets."
+
+#: watermarks/templates/login/login.html:44
+msgid ""
+"Gaudeix d'un processament d'imatges fluid i impulsat per IA, dissenyat per a "
+"professionals. Ràpid, precís i sense esforç."
+msgstr ""
+"Experience seamless, AI-powered image processing designed for professionals. "
+"Fast, precise, and effortless."
+
+#: watermarks/templates/login/login.html:56
+msgid "Benvingut de nou"
+msgstr "Welcome back"
+
+#: watermarks/templates/login/login.html:57
+msgid "Introdueix les teves dades per iniciar sessió."
+msgstr "Please enter your details to sign in."
+
+#: watermarks/templates/login/login.html:94
+msgid "Inicia sessió amb Google"
+msgstr "Log in with Google"
+
+#: watermarks/templates/login/login.html:101
+msgid "Inicia sessió amb Apple"
+msgstr "Log in with Apple"
+
+#: watermarks/templates/login/login.html:109
+msgid "O continua amb el correu electrònic"
+msgstr "Or continue with email"
+
+#: watermarks/templates/login/login.html:116
+#: watermarks/templates/sing_up/sing_up.html:105
+msgid "Correu electrònic"
+msgstr "Email address"
+
+#: watermarks/templates/login/login.html:123
+#: watermarks/templates/sing_up/sing_up.html:118
+msgid "Contrasenya"
+msgstr "Password"
+
+#: watermarks/templates/login/login.html:142
+msgid "Recorda'm"
+msgstr "Remember me"
+
+#: watermarks/templates/login/login.html:147
+msgid "Has oblidat la contrasenya?"
+msgstr "Forgot Password?"
+
+#: watermarks/templates/login/login.html:161
+msgid "No tens un compte?"
+msgstr "Don't have an account?"
+
+#: watermarks/templates/login/login.html:163
+msgid "Registra't"
+msgstr "Sign up"
+
+#: watermarks/templates/sing_up/sing_up.html:9
+msgid "Registrar-se - UnMark"
+msgstr "Sign Up - UnMark"
+
+#: watermarks/templates/sing_up/sing_up.html:51
+msgid "Processament d'imatges professional, simplificat."
+msgstr "Professional image processing, simplified."
+
+#: watermarks/templates/sing_up/sing_up.html:54
+msgid ""
+"Uneix-te a milers de creadors que confien en UnMark per millorar el seu "
+"espai de treball digital amb precisió i facilitat."
+msgstr ""
+"Join thousands of creators who trust UnMark to enhance their digital "
+"workspace with precision and ease."
+
+#: watermarks/templates/sing_up/sing_up.html:73
+msgid "Crear un compte"
+msgstr "Create an account"
+
+#: watermarks/templates/sing_up/sing_up.html:74
+msgid "Comença la teva prova gratuïta avui mateix. No cal targeta de crèdit."
+msgstr "Start your free trial today. No credit card required."
+
+#: watermarks/templates/sing_up/sing_up.html:94
+msgid "Nom complet"
+msgstr "Full Name"
+
+#: watermarks/templates/sing_up/sing_up.html:139
+msgid ""
+"Accepto els <a class=\"font-label-md text-primary hover:text-primary-"
+"container underline transition-colors\" href=\"#\">Termes i Condicions</a>"
+msgstr ""
+"I agree to the <a class=\"font-label-md text-primary hover:text-primary-"
+"container underline transition-colors\" href=\"#\">Terms and Conditions</a>"
+
+#: watermarks/templates/sing_up/sing_up.html:148
+msgid "Crear Compte"
+msgstr "Create Account"
+
+#: watermarks/templates/sing_up/sing_up.html:153
+msgid "Ja tens un compte?"
+msgstr "Already have an account?"
+
+#: watermarks/templates/sing_up/sing_up.html:154
+msgid "Inicia sessió"
+msgstr "Sign in"
+
+#: watermarks/views.py:43
+msgid "Invalid email or password."
+msgstr "Invalid email or password."
+
+#: watermarks/views.py:51
+msgid "You have been logged out."
+msgstr "You have been logged out."
+
+#: watermarks/views.py:67
+msgid "Please fill in all required fields."
+msgstr "Please fill in all required fields."
+
+#: watermarks/views.py:71
+msgid "You must agree to the Terms and Conditions."
+msgstr "You must agree to the Terms and Conditions."
+
+#: watermarks/views.py:75
+msgid "Password must be at least 6 characters long."
+msgstr "Password must be at least 6 characters long."
+
+#: watermarks/views.py:79
+msgid "An account with this email already exists."
+msgstr "An account with this email already exists."
+
+#: watermarks/views.py:98
+msgid "Account created successfully! Welcome to UnMark."
+msgstr "Account created successfully! Welcome to UnMark."

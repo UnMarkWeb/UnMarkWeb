@@ -40,7 +40,7 @@ class AuthViewsTestCase(TestCase):
             },
         )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "already exists")
+        self.assertContains(response, "Ja existeix un compte")
 
     def test_signup_post_missing_terms(self):
         response = self.client.post(
@@ -77,7 +77,7 @@ class AuthViewsTestCase(TestCase):
             },
         )
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Invalid email or password")
+        self.assertContains(response, "Correu o contrasenya incorrectes")
 
     def test_logout(self):
         user = User.objects.create_user(username="jane@example.com", email="jane@example.com", password="password123")
@@ -85,3 +85,22 @@ class AuthViewsTestCase(TestCase):
         response = self.client.get(reverse("logout"), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertNotIn("_auth_user_id", self.client.session)
+
+    def test_language_switching_es_and_en(self):
+        # Switch to Spanish
+        response = self.client.post(reverse("set_language"), {"language": "es"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        landing_es = self.client.get(reverse("landing_page"))
+        self.assertContains(landing_es, "Protege y Limpia tus Imágenes")
+
+        # Switch to English
+        response = self.client.post(reverse("set_language"), {"language": "en"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        landing_en = self.client.get(reverse("landing_page"))
+        self.assertContains(landing_en, "Protect and Clean your Images")
+        
+        login_en = self.client.get(reverse("login"))
+        self.assertContains(login_en, "Welcome back")
+        
+        signup_en = self.client.get(reverse("signup"))
+        self.assertContains(signup_en, "Create an account")

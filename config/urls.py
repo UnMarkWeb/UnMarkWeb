@@ -16,11 +16,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("i18n/", include("django.conf.urls.i18n")),
     path("", landing_page, name="landing_page"),
     path("login/", login, name="login"),
     path("logout/", logout, name="logout"),

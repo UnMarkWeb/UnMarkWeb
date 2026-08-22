@@ -1,12 +1,13 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 
-<html class="light" lang="en">
+<html class="light" lang="{{ request.LANGUAGE_CODE|default:'ca' }}">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Login - UnMark AI</title>
+    <title>{% translate "Iniciar Sessió - UnMark AI" %}</title>
     <!-- Material Symbols -->
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -39,10 +40,8 @@
             </div>
             <!-- Value Proposition -->
             <div class="relative z-10 max-w-md">
-                <h2 class="font-display-lg text-display-lg text-on-surface mb-stack-md">Restore your creative assets.
-                </h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant">Experience seamless, AI-powered image
-                    processing designed for professionals. Fast, precise, and effortless.</p>
+                <h2 class="font-display-lg text-display-lg text-on-surface mb-stack-md">{% translate "Restaura els teus actius creatius." %}</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">{% translate "Gaudeix d'un processament d'imatges fluid i impulsat per IA, dissenyat per a professionals. Ràpid, precís i sense esforç." %}</p>
             </div>
             <!-- Subtle gradient overlay to ensure text readability -->
             <div
@@ -54,9 +53,8 @@
             <!-- Form Container -->
             <div class="w-full max-w-md mx-auto">
                 <div class="mb-stack-lg text-center md:text-left">
-                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Welcome back</h1>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Please enter your details to sign in.
-                    </p>
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">{% translate "Benvingut de nou" %}</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant">{% translate "Introdueix les teves dades per iniciar sessió." %}</p>
                 </div>
 
                 <!-- Messages / Errors -->
@@ -76,6 +74,7 @@
                 <!-- Social Login Options -->
                 <div class="flex flex-col gap-stack-sm mb-stack-lg">
                     <button
+                        type="button"
                         class="flex items-center justify-center w-full px-4 py-3 border border-outline-variant rounded-lg bg-surface text-label-md font-label-md text-on-surface hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors shadow-sm">
                         <!-- Google Icon SVG (Simulated) -->
                         <svg class="w-5 h-5 mr-2" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -92,13 +91,14 @@
                                 d="M12 5.38C13.62 5.38 15.06 5.93 16.2 7.02L19.36 3.86C17.45 2.08 14.97 1 12 1C7.7 1 3.99 3.43 2.17 7.03L5.84 9.87C6.7 7.29 9.13 5.38 12 5.38Z"
                                 fill="#EA4335"></path>
                         </svg>
-                        Log in with Google
+                        {% translate "Inicia sessió amb Google" %}
                     </button>
                     <button
+                        type="button"
                         class="flex items-center justify-center w-full px-4 py-3 border border-outline-variant rounded-lg bg-surface text-label-md font-label-md text-on-surface hover:bg-surface-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-colors shadow-sm">
                         <!-- Apple Icon SVG (Simulated) -->
                         <span class="material-symbols-outlined mr-2">devices</span>
-                        Log in with Apple
+                        {% translate "Inicia sessió amb Apple" %}
                     </button>
                 </div>
                 <div class="relative flex items-center justify-center mb-stack-lg">
@@ -106,22 +106,21 @@
                         <div class="w-full border-t border-outline-variant"></div>
                     </div>
                     <div class="relative bg-surface px-4 text-label-sm font-label-sm text-on-surface-variant uppercase">
-                        Or continue with email
+                        {% translate "O continua amb el correu electrònic" %}
                     </div>
                 </div>
                 <!-- Login Form -->
                 <form action="{% url 'login' %}" class="space-y-stack-md" method="POST">
                     {% csrf_token %}
                     <div>
-                        <label class="block text-label-md font-label-md text-on-surface mb-1" for="email">Email
-                            address</label>
+                        <label class="block text-label-md font-label-md text-on-surface mb-1" for="email">{% translate "Correu electrònic" %}</label>
                         <input autocomplete="email"
                             class="appearance-none block w-full px-3 py-3 border border-outline-variant rounded-md shadow-sm placeholder-outline focus:outline-none focus:ring-primary-container focus:border-primary-container text-body-md font-body-md transition-colors bg-surface text-on-surface"
-                            id="email" name="email" placeholder="you@company.com" value="{{ email|default:'' }}" required="" type="email" />
+                            id="email" name="email" placeholder="tu@empresa.com" value="{{ email|default:'' }}" required="" type="email" />
                     </div>
                     <div>
                         <label class="block text-label-md font-label-md text-on-surface mb-1"
-                            for="password">Password</label>
+                            for="password">{% translate "Contrasenya" %}</label>
                         <div class="relative">
                             <input autocomplete="current-password"
                                 class="appearance-none block w-full px-3 py-3 border border-outline-variant rounded-md shadow-sm placeholder-outline focus:outline-none focus:ring-primary-container focus:border-primary-container text-body-md font-body-md transition-colors bg-surface text-on-surface pr-10"
@@ -140,12 +139,12 @@
                                 id="remember-me" name="remember-me" type="checkbox" />
                             <label class="ml-2 block text-label-sm font-label-sm text-on-surface-variant cursor-pointer"
                                 for="remember-me">
-                                Remember me
+                                {% translate "Recorda'm" %}
                             </label>
                         </div>
                         <div class="text-label-sm font-label-sm">
                             <a class="font-medium text-primary-container hover:text-primary transition-colors" href="#">
-                                Forgot Password?
+                                {% translate "Has oblidat la contrasenya?" %}
                             </a>
                         </div>
                     </div>
@@ -153,15 +152,15 @@
                         <button
                             class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-label-md font-label-md text-on-primary bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all hover:shadow-md cursor-pointer"
                             type="submit">
-                            Login
+                            {% translate "Iniciar sessió" %}
                         </button>
                     </div>
                 </form>
                 <div class="mt-stack-lg text-center">
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        Don't have an account?
+                        {% translate "No tens un compte?" %}
                         <a class="font-medium text-primary-container hover:text-primary transition-colors underline decoration-2 underline-offset-4"
-                            href="{% url 'signup' %}">Sign up</a>
+                            href="{% url 'signup' %}">{% translate "Registra't" %}</a>
                     </p>
                 </div>
             </div>

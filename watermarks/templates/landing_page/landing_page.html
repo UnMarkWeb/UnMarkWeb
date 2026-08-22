@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html class="light" lang="{{ request.LANGUAGE_CODE|default:'ca' }}">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>UnMark - Protege y Limpia tus Imágenes con IA</title>
+    <title>{% translate "UnMark - Protegeix i Neteja les teves Imatges amb IA" %}</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -55,22 +56,21 @@
         <section class="w-full flex flex-col md:flex-row items-center gap-gutter">
             <div class="flex-1 flex flex-col items-start gap-stack-md">
                 <h1 class="text-display-lg font-display-lg text-on-background leading-tight">
-                    Protege y Limpia tus Imágenes <br><span class="gradient-text">con IA</span>
+                    {% translate "Protegeix i Neteja les teves Imatges" %} <br><span class="gradient-text">{% translate "amb IA" %}</span>
                 </h1>
                 <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
-                    Añade marcas de agua profesionales para proteger tu trabajo o elimínalas con precisión quirúrgica
-                    usando nuestra tecnología avanzada de IA. El control total de tus imágenes, al alcance de un clic.
+                    {% translate "Afegeix marques d'aigua professionals per protegir la teva feina o elimina-les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. El control total de les teves imatges, a l'abast d'un clic." %}
                 </p>
                 <div class="flex gap-stack-md mt-6">
                     <a href="{% url 'signup' %}"
                         class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                        Comenzar Gratis
+                        {% translate "Començar Gratis" %}
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                     <button
                         class="bg-surface text-on-surface px-8 py-4 rounded-lg font-label-md text-label-md border border-outline hover:bg-surface-variant transition-colors flex items-center gap-2">
                         <span class="material-symbols-outlined">play_circle</span>
-                        Ver Demo
+                        {% translate "Veure Demo" %}
                     </button>
                 </div>
             </div>
@@ -81,20 +81,20 @@
                 <div class="relative w-4/5 h-4/5 flex">
                     <div
                         class="w-1/2 h-full bg-surface-container-high rounded-l-xl border-r border-dashed border-primary overflow-hidden relative">
-                        <img alt="Con marca" class="w-full h-full object-cover opacity-80"
+                        <img alt="{% translate 'Amb marca' %}" class="w-full h-full object-cover opacity-80"
                             data-alt="A pristine, highly detailed landscape photograph of a snowy mountain peak at sunrise, with a prominent, intrusive text watermark across the center. Bright, airy, and professional stock photography style."
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHwhHLNDm_f_-3OffRQIXWZwYrqwdxOrZs2JIq-fzjlNTrKSN4g9_MyP2AotduBa04uVIPkjLxoAga9JG5cCH0LwCas4ZGnM3d5ge8TNJWGShFrzBGLDlDwglWvBymVVNNCH4ylJelqHtcIosuKsVNDIoGvSFveGXjD6C8fbZqbAYfJ0gwsKhe07WDnQ7uzdkTz-SEwc12PPs2pwWQe1GEBgeQDkZk5VTp8PJWshfwpoUkul8iPwU">
                         <div
                             class="absolute top-4 left-4 bg-error text-on-error px-2 py-1 rounded-full text-label-sm font-label-sm shadow-sm">
-                            Original</div>
+                            {% translate "Original" %}</div>
                     </div>
                     <div class="w-1/2 h-full bg-surface-container rounded-r-xl overflow-hidden relative">
-                        <img alt="Sin marca" class="w-full h-full object-cover"
+                        <img alt="{% translate 'Sense marca' %}" class="w-full h-full object-cover"
                             data-alt="The exact same pristine landscape photograph of a snowy mountain peak at sunrise, but perfectly clean with no watermark. Flawless editing, vibrant colors, bright and crisp professional image."
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmfE5r_A6lW5mj1T6TmEYRG934sAW8XAQ6JeBah0OCaXbtYwyq1LO9X7KVH16NaR-Ve46OnmELxmRH3xE5T7enlNZVKJJKyQkWG5Q2ID9xQaweOn9pAtMS3KODsefyV5NixA6v4H9uJG1-5YxQdHXnZ7_L3RDmNxKJ53-7d2_wGDrq15Hj2X1O3AUmkkAgyEMzf4_wYVtiyz6WhGOZMVQxPhmKRP9CE031Jsfx9-mJGknmzK2OvEc">
                         <div
                             class="absolute top-4 right-4 bg-secondary text-on-secondary px-2 py-1 rounded-full text-label-sm font-label-sm shadow-sm">
-                            Procesada</div>
+                            {% translate "Processada" %}</div>
                     </div>
                     <!-- Slider handle -->
                     <div
@@ -107,13 +107,12 @@
                 </div>
             </div>
         </section>
+
         <!-- Features Section -->
-        <section class="w-full flex flex-col items-center gap-stack-lg">
+        <section id="features" class="w-full flex flex-col items-center gap-stack-lg">
             <div class="text-center max-w-2xl">
-                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">Herramientas Profesionales, Uso
-                    Simple</h2>
-                <p class="text-body-lg font-body-lg text-on-surface-variant">Nuestra plataforma está diseñada con un
-                    enfoque minimalista para que la tecnología trabaje por ti, no en tu contra.</p>
+                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">{% translate "Eines Professionals, Ús Simple" %}</h2>
+                <p class="text-body-lg font-body-lg text-on-surface-variant">{% translate "La nostra plataforma està dissenyada amb un enfocament minimalista perquè la tecnologia treballi per tu, no en contra teva." %}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full">
                 <!-- Feature 1 -->
@@ -122,10 +121,9 @@
                     <div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
                         <span class="material-symbols-outlined text-on-primary-container">shield_lock</span>
                     </div>
-                    <h3 class="text-headline-md font-headline-md text-on-surface">Protección Personalizada</h3>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Protecció Personalitzada" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        Añade logotipos, texto o patrones repetitivos. Ajusta la opacidad, escala y posición con nuestra
-                        interfaz de arrastrar y soltar para asegurar tus derechos de autor sin arruinar la composición.
+                        {% translate "Afegeix logotips, text o patrons repetitius. Ajusta l'opacitat, escala i posició amb la nostra interfície d'arrossegar i deixar anar per assegurar els teus drets d'autor sense arruïnar la composició." %}
                     </p>
                 </div>
                 <!-- Feature 2 -->
@@ -134,11 +132,9 @@
                     <div class="w-12 h-12 rounded-xl bg-tertiary-container flex items-center justify-center">
                         <span class="material-symbols-outlined text-on-tertiary-container">ink_eraser</span>
                     </div>
-                    <h3 class="text-headline-md font-headline-md text-on-surface">Eliminación Precisa (IA)</h3>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Eliminació Precisa (IA)" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        Nuestra red neuronal analiza los píxeles circundantes para reconstruir el fondo oculto tras
-                        marcas de agua, textos molestos o sellos de fecha, dejando un resultado indistinguible del
-                        original.
+                        {% translate "La nostra xarxa neuronal analitza els píxels circumdants per reconstruir el fons ocult darrere de marques d'aigua, textos molestos o segells de data, deixant un resultat indistingible de l'original." %}
                     </p>
                 </div>
                 <!-- Feature 3 -->
@@ -146,18 +142,18 @@
                     class="bg-surface-container-low p-8 rounded-2xl ambient-shadow-level-1 border border-primary-fixed flex flex-col items-start gap-4 relative overflow-hidden">
                     <div
                         class="absolute top-0 right-0 bg-primary text-on-primary px-3 py-1 rounded-bl-xl font-label-sm text-label-sm font-bold">
-                        PRO</div>
+                        {% translate "PRO" %}</div>
                     <div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
                         <span class="material-symbols-outlined text-on-secondary-container">dynamic_feed</span>
                     </div>
-                    <h3 class="text-headline-md font-headline-md text-on-surface">Procesamiento por Lotes</h3>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Processament per Lots" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        Sube docenas de imágenes a la vez. Aplica tu marca de agua estándar o limpia carpetas enteras en
-                        segundos. Eficiencia técnica pensada para flujos de trabajo de alto volumen.
+                        {% translate "Puja dotzenes d'imatges alhora. Aplica la teva marca d'aigua estàndard o neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos de treball d'alt volum." %}
                     </p>
                 </div>
             </div>
         </section>
+
         <!-- Drag & Drop Interactive Area (Mockup) -->
         <section
             class="w-full max-w-4xl bg-surface-container-lowest p-12 rounded-[24px] ambient-shadow-level-1 border-2 border-dashed border-outline-variant hover:border-tertiary transition-colors flex flex-col items-center justify-center gap-stack-md text-center group cursor-pointer">
@@ -167,87 +163,80 @@
                     class="material-symbols-outlined text-[40px] text-primary group-hover:text-on-tertiary-container transition-colors">upload_file</span>
             </div>
             <div>
-                <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Arrastra tus imágenes aquí</h3>
-                <p class="text-body-md font-body-md text-on-surface-variant">PNG, JPG, WEBP hasta 10MB. Procesamiento
-                    seguro en la nube.</p>
+                <h3 class="text-headline-md font-headline-md text-on-surface mb-2">{% translate "Arrossega les teves imatges aquí" %}</h3>
+                <p class="text-body-md font-body-md text-on-surface-variant">{% translate "PNG, JPG, WEBP fins a 10MB. Processament segur al núvol." %}</p>
             </div>
             <button
-                class="mt-4 px-6 py-2 bg-surface text-primary border border-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">Explorar
-                Archivos</button>
+                class="mt-4 px-6 py-2 bg-surface text-primary border border-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">{% translate "Explorar Fitxers" %}</button>
         </section>
+
         <!-- Pricing Section -->
-        <section class="w-full flex flex-col items-center gap-stack-lg mb-20">
+        <section id="pricing" class="w-full flex flex-col items-center gap-stack-lg mb-20">
             <div class="text-center max-w-2xl mb-8">
-                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">Planes Simples y Transparentes
+                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">{% translate "Plans Simples i Transparents" %}
                 </h2>
-                <p class="text-body-lg font-body-lg text-on-surface-variant">Comienza gratis o desbloquea el poder total
-                    para profesionales creativos.</p>
+                <p class="text-body-lg font-body-lg text-on-surface-variant">{% translate "Comença gratis o desbloqueja tot el poder per a professionals creatius." %}</p>
             </div>
             <div class="flex flex-col md:flex-row gap-gutter max-w-4xl w-full justify-center">
                 <!-- Free Tier -->
                 <div
                     class="flex-1 bg-surface-container-lowest rounded-2xl p-8 ambient-shadow-level-1 border border-surface-variant flex flex-col">
-                    <h3 class="text-headline-md font-headline-md text-on-surface">Básico</h3>
-                    <div class="text-display-lg font-display-lg text-on-background mt-4 mb-2">Gratis</div>
-                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">Perfecto para pruebas ocasionales.
+                    <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Bàsic" %}</h3>
+                    <div class="text-display-lg font-display-lg text-on-background mt-4 mb-2">{% translate "Gratis" %}</div>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">{% translate "Perfecte per a proves ocasionals." %}
                     </p>
                     <ul class="flex flex-col gap-4 mb-8 flex-grow">
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Procesa 1 imagen a la vez</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Processa 1 imatge a la vegada" %}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Resolución estándar (1080p)</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Resolució estàndard (1080p)" %}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Hasta 3 marcas de agua
-                                guardadas</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Fins a 3 marques d'aigua guardades" %}</span>
                         </li>
                     </ul>
                     <button
-                        class="w-full py-3 bg-surface text-on-surface border border-outline rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors">Plan
-                        Actual</button>
+                        class="w-full py-3 bg-surface text-on-surface border border-outline rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors">{% translate "Pla Actual" %}</button>
                 </div>
                 <!-- Pro Tier -->
                 <div
                     class="flex-1 bg-surface-container-lowest rounded-2xl p-8 ambient-shadow-level-2 border-2 border-primary relative flex flex-col">
                     <div
                         class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-label-sm font-label-sm font-bold shadow-md">
-                        Recomendado</div>
-                    <h3 class="text-headline-md font-headline-md text-on-surface">Pro</h3>
-                    <div class="text-display-lg font-display-lg text-primary mt-4 mb-2">$9<span
-                            class="text-body-lg text-on-surface-variant">/mes</span></div>
-                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">Para creadores y agencias.</p>
+                        {% translate "Recomanat" %}</div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Pro" %}</h3>
+                    <div class="text-display-lg font-display-lg text-primary mt-4 mb-2">9€<span
+                            class="text-body-lg text-on-surface-variant">/{% translate "mes" %}</span></div>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">{% translate "Per a creadors i agències." %}</p>
                     <ul class="flex flex-col gap-4 mb-8 flex-grow">
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface font-semibold">Procesamiento por
-                                lotes ilimitado</span>
+                            <span class="text-body-md font-body-md text-on-surface font-semibold">{% translate "Processament per lots il·limitat" %}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Descarga en resolución original
-                                (4K+)</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Descàrrega en resolució original (4K+)" %}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Plantillas de marcas de agua
-                                ilimitadas</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Plantilles de marques d'aigua il·limitades" %}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                            <span class="text-body-md font-body-md text-on-surface">Soporte prioritario</span>
+                            <span class="text-body-md font-body-md text-on-surface">{% translate "Suport prioritari" %}</span>
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md">Suscribirse
-                        al Pro</button>
+                    <a href="{% url 'signup' %}"
+                        class="w-full py-3 bg-primary text-on-primary text-center rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md block">{% translate "Subscriure's al Pro" %}</a>
                 </div>
             </div>
         </section>
     </main>
+
     <!-- Footer -->
     <footer class="bg-surface-container-lowest dark:bg-on-background border-t border-outline-variant mt-auto">
         <div
@@ -258,21 +247,19 @@
             </div>
             <div class="flex gap-gutter items-center">
                 <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                    href="#">Terms</a>
+                    href="#">{% translate "Termes" %}</a>
                 <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                    href="#">Privacy</a>
+                    href="#">{% translate "Privadesa" %}</a>
                 <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                    href="#">Contact</a>
+                    href="#">{% translate "Contacte" %}</a>
                 <a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-primary-fixed transition-colors"
                     href="#">Twitter</a>
             </div>
             <div class="text-on-surface-variant dark:text-outline-variant text-label-sm font-label-sm">
-                © 2024 UnMark AI. All rights reserved.
+                {% blocktranslate %}© 2026 UnMark AI. Tots els drets reservats.{% endblocktranslate %}
             </div>
         </div>
     </footer>
-
-
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="light" lang="{{ request.LANGUAGE_CODE|default:'ca' }}">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sign Up - UnMark</title>
+    <title>{% translate "Registrar-se - UnMark" %}</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -46,10 +47,12 @@
                     </h1>
                 </div>
                 <div class="max-w-md">
-                    <p class="font-display-lg text-[40px] leading-tight font-bold text-white mb-stack-md">Professional
-                        image processing, simplified.</p>
-                    <p class="font-body-lg text-body-lg text-primary-fixed opacity-90">Join thousands of creators who
-                        trust UnMark to enhance their digital workspace with precision and ease.</p>
+                    <p class="font-display-lg text-[40px] leading-tight font-bold text-white mb-stack-md">
+                        {% translate "Processament d'imatges professional, simplificat." %}
+                    </p>
+                    <p class="font-body-lg text-body-lg text-primary-fixed opacity-90">
+                        {% translate "Uneix-te a milers de creadors que confien en UnMark per millorar el seu espai de treball digital amb precisió i facilitat." %}
+                    </p>
                 </div>
             </div>
         </div>
@@ -67,9 +70,8 @@
                     </h1>
                 </div>
                 <div class="text-center lg:text-left">
-                    <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Create an account</h2>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Start your free trial today. No credit
-                        card required.</p>
+                    <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">{% translate "Crear un compte" %}</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">{% translate "Comença la teva prova gratuïta avui mateix. No cal targeta de crèdit." %}</p>
                 </div>
 
                 <!-- Messages / Errors -->
@@ -89,8 +91,7 @@
                 <form action="{% url 'signup' %}" class="space-y-stack-md" method="POST">
                     {% csrf_token %}
                     <div>
-                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="name">Full
-                            Name</label>
+                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="name">{% translate "Nom complet" %}</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <span class="material-symbols-outlined text-outline" data-icon="person">person</span>
@@ -101,8 +102,7 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="email-address">Email
-                            address</label>
+                        <label class="block font-label-md text-label-md text-on-surface mb-1" for="email-address">{% translate "Correu electrònic" %}</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <span class="material-symbols-outlined text-outline" data-icon="mail">mail</span>
@@ -115,7 +115,7 @@
                     </div>
                     <div>
                         <label class="block font-label-md text-label-md text-on-surface mb-1"
-                            for="password">Password</label>
+                            for="password">{% translate "Contrasenya" %}</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
@@ -136,23 +136,22 @@
                             id="terms" name="terms" required="" type="checkbox" />
                         <label class="ml-3 block font-body-md text-body-md text-on-surface-variant cursor-pointer"
                             for="terms">
-                            I agree to the <a
-                                class="font-label-md text-primary hover:text-primary-container underline transition-colors"
-                                href="#">Terms and Conditions</a>
+                            {% blocktranslate trimmed %}
+                            Accepto els <a class="font-label-md text-primary hover:text-primary-container underline transition-colors" href="#">Termes i Condicions</a>
+                            {% endblocktranslate %}
                         </label>
                     </div>
                     <div>
                         <button
                             class="group relative w-full flex justify-center py-3 px-4 border border-transparent font-label-md text-label-md rounded-lg text-white bg-primary-container hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
                             type="submit">
-                            Create Account
+                            {% translate "Crear Compte" %}
                         </button>
                     </div>
                 </form>
                 <div class="text-center font-body-md text-body-md text-on-surface-variant mt-stack-lg">
-                    Already have an account?
-                    <a class="font-label-md text-primary hover:text-primary-container transition-colors font-medium" href="{% url 'login' %}">Sign
-                        in</a>
+                    {% translate "Ja tens un compte?" %}
+                    <a class="font-label-md text-primary hover:text-primary-container transition-colors font-medium" href="{% url 'login' %}">{% translate "Inicia sessió" %}</a>
                 </div>
             </div>
         </div>

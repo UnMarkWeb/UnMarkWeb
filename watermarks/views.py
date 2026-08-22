@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 
 def landing_page(request):
@@ -39,7 +40,7 @@ def login(request):
                 request.session.set_expiry(0)
             return redirect("landing_page")
         else:
-            messages.error(request, "Invalid email or password.")
+            messages.error(request, _("Invalid email or password."))
             return render(request, "login/login.html", {"email": email})
 
     return render(request, "login/login.html")
@@ -47,7 +48,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    messages.info(request, "You have been logged out.")
+    messages.info(request, _("You have been logged out."))
     return redirect("landing_page")
 
 
@@ -63,19 +64,19 @@ def sign_up(request):
 
         # Validation
         if not name or not email or not password:
-            messages.error(request, "Please fill in all required fields.")
+            messages.error(request, _("Please fill in all required fields."))
             return render(request, "sing_up/sing_up.html", {"name": name, "email": email})
 
         if not terms:
-            messages.error(request, "You must agree to the Terms and Conditions.")
+            messages.error(request, _("You must agree to the Terms and Conditions."))
             return render(request, "sing_up/sing_up.html", {"name": name, "email": email})
 
         if len(password) < 6:
-            messages.error(request, "Password must be at least 6 characters long.")
+            messages.error(request, _("Password must be at least 6 characters long."))
             return render(request, "sing_up/sing_up.html", {"name": name, "email": email})
 
         if User.objects.filter(email__iexact=email).exists() or User.objects.filter(username__iexact=email).exists():
-            messages.error(request, "An account with this email already exists.")
+            messages.error(request, _("An account with this email already exists."))
             return render(request, "sing_up/sing_up.html", {"name": name, "email": email})
 
         # Name parsing
@@ -94,7 +95,7 @@ def sign_up(request):
 
         # Automatically log the user in after registration
         auth_login(request, user)
-        messages.success(request, "Account created successfully! Welcome to UnMark.")
+        messages.success(request, _("Account created successfully! Welcome to UnMark."))
         return redirect("landing_page")
 
     return render(request, "sing_up/sing_up.html")
