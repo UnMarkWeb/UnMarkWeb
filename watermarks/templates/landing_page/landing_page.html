@@ -40,13 +40,22 @@
         class="flex-grow flex flex-col items-center w-full max-w-container-max mx-auto px-margin-desktop pb-stack-lg gap-32 pt-12">
         <!-- Messages -->
         {% if messages %}
-        <div class="w-full space-y-2">
+        <div class="w-full space-y-3">
             {% for message in messages %}
-            <div class="p-4 rounded-xl text-body-md flex items-center gap-3 {% if message.tags == 'error' %}bg-error-container text-on-error-container border border-error/20{% else %}bg-secondary-container text-on-secondary-container{% endif %} shadow-sm">
-                <span class="material-symbols-outlined text-[24px]">
-                    {% if message.tags == 'error' %}error{% else %}check_circle{% endif %}
-                </span>
-                <span class="font-medium">{{ message }}</span>
+            <div class="message-banner p-4 rounded-xl text-body-md flex items-center justify-between gap-3 {% if message.tags == 'error' %}bg-error-container text-on-error-container border border-error/20{% else %}bg-secondary-container text-on-secondary-container border border-secondary/20{% endif %} shadow-sm transition-all duration-300">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[24px]">
+                        {% if message.tags == 'error' %}error{% else %}check_circle{% endif %}
+                    </span>
+                    <span class="font-medium">{{ message }}</span>
+                </div>
+                <button
+                    type="button"
+                    onclick="dismissMessage(this)"
+                    class="p-1 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer opacity-70 hover:opacity-100"
+                    aria-label="{% translate 'Tancar' %}">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
             </div>
             {% endfor %}
         </div>
@@ -59,7 +68,9 @@
                     {% translate "Protegeix i Neteja les teves Imatges" %} <br><span class="gradient-text">{% translate "amb IA" %}</span>
                 </h1>
                 <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
-                    {% translate "Afegeix marques d'aigua professionals per protegir la teva feina o elimina-les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. El control total de les teves imatges, a l'abast d'un clic." %}
+                    {% blocktranslate trimmed %}
+                    Afegeix marques d'aigua professionals per protegir la teva feina o elimina-les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. El control total de les teves imatges, a l'abast d'un clic.
+                    {% endblocktranslate %}
                 </p>
                 <div class="flex gap-stack-md mt-6">
                     <a href="{% url 'signup' %}"
@@ -123,7 +134,9 @@
                     </div>
                     <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Protecció Personalitzada" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        {% translate "Afegeix logotips, text o patrons repetitius. Ajusta l'opacitat, escala i posició amb la nostra interfície d'arrossegar i deixar anar per assegurar els teus drets d'autor sense arruïnar la composició." %}
+                        {% blocktranslate trimmed %}
+                        Afegeix logotips, text o patrons repetitius. Ajusta l'opacitat, escala i posició amb la nostra interfície d'arrossegar i deixar anar per assegurar els teus drets d'autor sense arruïnar la composició.
+                        {% endblocktranslate %}
                     </p>
                 </div>
                 <!-- Feature 2 -->
@@ -134,7 +147,9 @@
                     </div>
                     <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Eliminació Precisa (IA)" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        {% translate "La nostra xarxa neuronal analitza els píxels circumdants per reconstruir el fons ocult darrere de marques d'aigua, textos molestos o segells de data, deixant un resultat indistingible de l'original." %}
+                        {% blocktranslate trimmed %}
+                        La nostra xarxa neuronal analitza els píxels circumdants per reconstruir el fons ocult darrere de marques d'aigua, textos molestos o segells de data, deixant un resultat indistingible de l'original.
+                        {% endblocktranslate %}
                     </p>
                 </div>
                 <!-- Feature 3 -->
@@ -148,7 +163,9 @@
                     </div>
                     <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Processament per Lots" %}</h3>
                     <p class="text-body-md font-body-md text-on-surface-variant">
-                        {% translate "Puja dotzenes d'imatges alhora. Aplica la teva marca d'aigua estàndard o neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos de treball d'alt volum." %}
+                        {% blocktranslate trimmed %}
+                        Puja dotzenes d'imatges alhora. Aplica la teva marca d'aigua estàndard o neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos de treball d'alt volum.
+                        {% endblocktranslate %}
                     </p>
                 </div>
             </div>
@@ -173,8 +190,7 @@
         <!-- Pricing Section -->
         <section id="pricing" class="w-full flex flex-col items-center gap-stack-lg mb-20">
             <div class="text-center max-w-2xl mb-8">
-                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">{% translate "Plans Simples i Transparents" %}
-                </h2>
+                <h2 class="text-headline-lg font-headline-lg text-on-background mb-4">{% translate "Plans Simples i Transparents" %}</h2>
                 <p class="text-body-lg font-body-lg text-on-surface-variant">{% translate "Comença gratis o desbloqueja tot el poder per a professionals creatius." %}</p>
             </div>
             <div class="flex flex-col md:flex-row gap-gutter max-w-4xl w-full justify-center">
@@ -183,8 +199,7 @@
                     class="flex-1 bg-surface-container-lowest rounded-2xl p-8 ambient-shadow-level-1 border border-surface-variant flex flex-col">
                     <h3 class="text-headline-md font-headline-md text-on-surface">{% translate "Bàsic" %}</h3>
                     <div class="text-display-lg font-display-lg text-on-background mt-4 mb-2">{% translate "Gratis" %}</div>
-                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">{% translate "Perfecte per a proves ocasionals." %}
-                    </p>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-8">{% translate "Perfecte per a proves ocasionals." %}</p>
                     <ul class="flex flex-col gap-4 mb-8 flex-grow">
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
@@ -256,10 +271,23 @@
                     href="#">Twitter</a>
             </div>
             <div class="text-on-surface-variant dark:text-outline-variant text-label-sm font-label-sm">
-                {% blocktranslate %}© 2026 UnMark AI. Tots els drets reservats.{% endblocktranslate %}
+                {% blocktranslate trimmed %}© 2026 UnMark AI. Tots els drets reservats.{% endblocktranslate %}
             </div>
         </div>
     </footer>
+    <script>
+        function dismissMessage(btn) {
+            const banner = btn.closest('.message-banner');
+            if (banner) {
+                banner.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                banner.style.opacity = '0';
+                banner.style.transform = 'translateY(-6px)';
+                setTimeout(() => {
+                    banner.remove();
+                }, 200);
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UnMarkWeb 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-22 14:07+0000\n"
+"POT-Creation-Date: 2026-08-22 14:43+0000\n"
 "PO-Revision-Date: 2026-08-22 16:00+0200\n"
 "Last-Translator: Norbert\n"
 "Language-Team: Catalan\n"
@@ -55,15 +55,19 @@ msgstr "Registrar-se"
 msgid "UnMark - Protegeix i Neteja les teves Imatges amb IA"
 msgstr "UnMark - Protegeix i Neteja les teves Imatges amb IA"
 
-#: watermarks/templates/landing_page/landing_page.html:59
+#: watermarks/templates/landing_page/landing_page.html:56
+msgid "Tancar"
+msgstr "Tancar"
+
+#: watermarks/templates/landing_page/landing_page.html:68
 msgid "Protegeix i Neteja les teves Imatges"
 msgstr "Protegeix i Neteja les teves Imatges"
 
-#: watermarks/templates/landing_page/landing_page.html:59
+#: watermarks/templates/landing_page/landing_page.html:68
 msgid "amb IA"
 msgstr "amb IA"
 
-#: watermarks/templates/landing_page/landing_page.html:62
+#: watermarks/templates/landing_page/landing_page.html:71
 msgid ""
 "Afegeix marques d'aigua professionals per protegir la teva feina o elimina-"
 "les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. "
@@ -73,35 +77,35 @@ msgstr ""
 "les amb precisió quirúrgica utilitzant la nostra tecnologia avançada d'IA. "
 "El control total de les teves imatges, a l'abast d'un clic."
 
-#: watermarks/templates/landing_page/landing_page.html:67
+#: watermarks/templates/landing_page/landing_page.html:78
 msgid "Començar Gratis"
 msgstr "Començar Gratis"
 
-#: watermarks/templates/landing_page/landing_page.html:73
+#: watermarks/templates/landing_page/landing_page.html:84
 msgid "Veure Demo"
 msgstr "Veure Demo"
 
-#: watermarks/templates/landing_page/landing_page.html:84
+#: watermarks/templates/landing_page/landing_page.html:95
 msgid "Amb marca"
 msgstr "Amb marca"
 
-#: watermarks/templates/landing_page/landing_page.html:89
+#: watermarks/templates/landing_page/landing_page.html:100
 msgid "Original"
 msgstr "Original"
 
-#: watermarks/templates/landing_page/landing_page.html:92
+#: watermarks/templates/landing_page/landing_page.html:103
 msgid "Sense marca"
 msgstr "Sense marca"
 
-#: watermarks/templates/landing_page/landing_page.html:97
+#: watermarks/templates/landing_page/landing_page.html:108
 msgid "Processada"
 msgstr "Processada"
 
-#: watermarks/templates/landing_page/landing_page.html:114
+#: watermarks/templates/landing_page/landing_page.html:125
 msgid "Eines Professionals, Ús Simple"
 msgstr "Eines Professionals, Ús Simple"
 
-#: watermarks/templates/landing_page/landing_page.html:115
+#: watermarks/templates/landing_page/landing_page.html:126
 msgid ""
 "La nostra plataforma està dissenyada amb un enfocament minimalista perquè la "
 "tecnologia treballi per tu, no en contra teva."
@@ -109,11 +113,11 @@ msgstr ""
 "La nostra plataforma està dissenyada amb un enfocament minimalista perquè la "
 "tecnologia treballi per tu, no en contra teva."
 
-#: watermarks/templates/landing_page/landing_page.html:124
+#: watermarks/templates/landing_page/landing_page.html:135
 msgid "Protecció Personalitzada"
 msgstr "Protecció Personalitzada"
 
-#: watermarks/templates/landing_page/landing_page.html:126
+#: watermarks/templates/landing_page/landing_page.html:137
 msgid ""
 "Afegeix logotips, text o patrons repetitius. Ajusta l'opacitat, escala i "
 "posició amb la nostra interfície d'arrossegar i deixar anar per assegurar "
@@ -123,11 +127,11 @@ msgstr ""
 "posició amb la nostra interfície d'arrossegar i deixar anar per assegurar "
 "els teus drets d'autor sense arruïnar la composició."
 
-#: watermarks/templates/landing_page/landing_page.html:135
+#: watermarks/templates/landing_page/landing_page.html:148
 msgid "Eliminació Precisa (IA)"
 msgstr "Eliminació Precisa (IA)"
 
-#: watermarks/templates/landing_page/landing_page.html:137
+#: watermarks/templates/landing_page/landing_page.html:150
 msgid ""
 "La nostra xarxa neuronal analitza els píxels circumdants per reconstruir el "
 "fons ocult darrere de marques d'aigua, textos molestos o segells de data, "
@@ -137,15 +141,15 @@ msgstr ""
 "fons ocult darrere de marques d'aigua, textos molestos o segells de data, "
 "deixant un resultat indistingible de l'original."
 
-#: watermarks/templates/landing_page/landing_page.html:145
+#: watermarks/templates/landing_page/landing_page.html:160
 msgid "PRO"
 msgstr "PRO"
 
-#: watermarks/templates/landing_page/landing_page.html:149
+#: watermarks/templates/landing_page/landing_page.html:164
 msgid "Processament per Lots"
 msgstr "Processament per Lots"
 
-#: watermarks/templates/landing_page/landing_page.html:151
+#: watermarks/templates/landing_page/landing_page.html:166
 msgid ""
 "Puja dotzenes d'imatges alhora. Aplica la teva marca d'aigua estàndard o "
 "neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos "
@@ -155,103 +159,104 @@ msgstr ""
 "neteja carpetes senceres en segons. Eficiència tècnica pensada per a fluxos "
 "de treball d'alt volum."
 
-#: watermarks/templates/landing_page/landing_page.html:166
+#: watermarks/templates/landing_page/landing_page.html:183
 msgid "Arrossega les teves imatges aquí"
 msgstr "Arrossega les teves imatges aquí"
 
-#: watermarks/templates/landing_page/landing_page.html:167
+#: watermarks/templates/landing_page/landing_page.html:184
 msgid "PNG, JPG, WEBP fins a 10MB. Processament segur al núvol."
 msgstr "PNG, JPG, WEBP fins a 10MB. Processament segur al núvol."
 
-#: watermarks/templates/landing_page/landing_page.html:170
+#: watermarks/templates/landing_page/landing_page.html:187
 msgid "Explorar Fitxers"
 msgstr "Explorar Fitxers"
 
-#: watermarks/templates/landing_page/landing_page.html:176
+#: watermarks/templates/landing_page/landing_page.html:193
 msgid "Plans Simples i Transparents"
 msgstr "Plans Simples i Transparents"
 
-#: watermarks/templates/landing_page/landing_page.html:178
+#: watermarks/templates/landing_page/landing_page.html:194
 msgid "Comença gratis o desbloqueja tot el poder per a professionals creatius."
-msgstr "Comença gratis o desbloqueja tot el poder per a professionals creatius."
+msgstr ""
+"Comença gratis o desbloqueja tot el poder per a professionals creatius."
 
-#: watermarks/templates/landing_page/landing_page.html:184
+#: watermarks/templates/landing_page/landing_page.html:200
 msgid "Bàsic"
 msgstr "Bàsic"
 
-#: watermarks/templates/landing_page/landing_page.html:185
+#: watermarks/templates/landing_page/landing_page.html:201
 msgid "Gratis"
 msgstr "Gratis"
 
-#: watermarks/templates/landing_page/landing_page.html:186
+#: watermarks/templates/landing_page/landing_page.html:202
 msgid "Perfecte per a proves ocasionals."
 msgstr "Perfecte per a proves ocasionals."
 
-#: watermarks/templates/landing_page/landing_page.html:191
+#: watermarks/templates/landing_page/landing_page.html:206
 msgid "Processa 1 imatge a la vegada"
 msgstr "Processa 1 imatge a la vegada"
 
-#: watermarks/templates/landing_page/landing_page.html:195
+#: watermarks/templates/landing_page/landing_page.html:210
 msgid "Resolució estàndard (1080p)"
 msgstr "Resolució estàndard (1080p)"
 
-#: watermarks/templates/landing_page/landing_page.html:199
+#: watermarks/templates/landing_page/landing_page.html:214
 msgid "Fins a 3 marques d'aigua guardades"
 msgstr "Fins a 3 marques d'aigua guardades"
 
-#: watermarks/templates/landing_page/landing_page.html:203
+#: watermarks/templates/landing_page/landing_page.html:218
 msgid "Pla Actual"
 msgstr "Pla Actual"
 
-#: watermarks/templates/landing_page/landing_page.html:210
+#: watermarks/templates/landing_page/landing_page.html:225
 msgid "Recomanat"
 msgstr "Recomanat"
 
-#: watermarks/templates/landing_page/landing_page.html:211
+#: watermarks/templates/landing_page/landing_page.html:226
 msgid "Pro"
 msgstr "Pro"
 
-#: watermarks/templates/landing_page/landing_page.html:213
+#: watermarks/templates/landing_page/landing_page.html:228
 msgid "mes"
 msgstr "mes"
 
-#: watermarks/templates/landing_page/landing_page.html:214
+#: watermarks/templates/landing_page/landing_page.html:229
 msgid "Per a creadors i agències."
 msgstr "Per a creadors i agències."
 
-#: watermarks/templates/landing_page/landing_page.html:218
+#: watermarks/templates/landing_page/landing_page.html:233
 msgid "Processament per lots il·limitat"
 msgstr "Processament per lots il·limitat"
 
-#: watermarks/templates/landing_page/landing_page.html:222
+#: watermarks/templates/landing_page/landing_page.html:237
 msgid "Descàrrega en resolució original (4K+)"
 msgstr "Descàrrega en resolució original (4K+)"
 
-#: watermarks/templates/landing_page/landing_page.html:226
+#: watermarks/templates/landing_page/landing_page.html:241
 msgid "Plantilles de marques d'aigua il·limitades"
 msgstr "Plantilles de marques d'aigua il·limitades"
 
-#: watermarks/templates/landing_page/landing_page.html:230
+#: watermarks/templates/landing_page/landing_page.html:245
 msgid "Suport prioritari"
 msgstr "Suport prioritari"
 
-#: watermarks/templates/landing_page/landing_page.html:234
+#: watermarks/templates/landing_page/landing_page.html:249
 msgid "Subscriure's al Pro"
 msgstr "Subscriure's al Pro"
 
-#: watermarks/templates/landing_page/landing_page.html:250
+#: watermarks/templates/landing_page/landing_page.html:265
 msgid "Termes"
 msgstr "Termes"
 
-#: watermarks/templates/landing_page/landing_page.html:252
+#: watermarks/templates/landing_page/landing_page.html:267
 msgid "Privadesa"
 msgstr "Privadesa"
 
-#: watermarks/templates/landing_page/landing_page.html:254
+#: watermarks/templates/landing_page/landing_page.html:269
 msgid "Contacte"
 msgstr "Contacte"
 
-#: watermarks/templates/landing_page/landing_page.html:259
+#: watermarks/templates/landing_page/landing_page.html:274
 msgid "© 2026 UnMark AI. Tots els drets reservats."
 msgstr "© 2026 UnMark AI. Tots els drets reservats."
 
