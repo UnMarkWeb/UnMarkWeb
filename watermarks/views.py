@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
+"""--------------------------------------Main pages--------------------------------------"""
 
 def landing_page(request):
     if request.user.is_authenticated:
@@ -14,6 +15,26 @@ def dashboard_reload(request):
     if not request.user.is_authenticated:
         return redirect("login")
     return render(request, "dashboard/dashboard.html")
+
+"""--------------------------------------Support pages--------------------------------------"""
+
+def support(request):
+    return redirect("state")
+    
+
+def state(request):
+    return render(request, "support/support_content/state.html")
+
+def faq(request):
+    return render(request, "support/support_content/faq.html")
+
+def status(request):
+    return render(request, "support/support_content/status.html")
+
+def tutorials(request):
+    return render(request, "support/support_content/tutorials.html")
+
+"""--------------------------------------Login and sign up--------------------------------------"""
 
 def login(request):
     if request.user.is_authenticated:

@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Suport - UnMark</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config" src="{%static 'support/tailwind-config.js'%}">
+    </script>
+    <link href="{%static 'support/support.css'%}" rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-surface flex flex-col min-h-screen">
+    <!-- TopNavBar -->
+    <!--<header
+        class="w-full bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+        <div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto w-full">
+            <div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                UnMark
+            </div>
+            <nav class="hidden md:flex space-x-gutter">
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:opacity-80 transition-opacity duration-200 font-label-md text-label-md"
+                    href="#">Pricing</a>
+                <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:opacity-80 transition-opacity duration-200 font-label-md text-label-md"
+                    href="#">Features</a>
+                <a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-md text-label-md active:scale-95 transition-transform"
+                    href="#">Support</a>
+            </nav>
+            <div class="flex items-center space-x-stack-md">
+                <button
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Log
+                    In</button>
+                <button
+                    class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-primary-container transition-colors shadow-sm">Get
+                    Started</button>
+            </div>
+        </div>
+    </header>-->
+    {% include 'header_landing.html' %} 
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="bg-surface-container-low py-20 px-margin-desktop relative overflow-hidden">
+            <div class="max-w-3xl mx-auto text-center relative z-10">
+                <h1 class="font-display-lg text-display-lg text-on-surface mb-stack-md">Com et podem ajudar?</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">Cerca a la nostra base de
+                    coneixement o contacta amb el nostre equip de suport.</p>
+                <div class="relative max-w-2xl mx-auto">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-outline">search</span>
+                    <input
+                        class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md shadow-sm transition-shadow"
+                        placeholder="Cerca articles, tutorials, errors..." type="text" />
+                </div>
+            </div>
+            <!-- Decorative Background Element -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none"
+                style="background-image: radial-gradient(circle at 50% 0%, #4f46e5 0%, transparent 70%);"></div>
+        </section>
+        <!-- Quick Links Bento Grid -->
+        <section class="max-w-container-max mx-auto px-margin-desktop py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Card 1 -->
+                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                    href="#">
+                    <div
+                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-on-primary">menu_book</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Documentació</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Guies detallades i referències d'API
+                        per a desenvolupadors.</p>
+                </a>
+                <!-- Card 2 -->
+                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                    href="#">
+                    <div
+                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-on-primary">play_circle</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Tutorials en vídeo</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Aprèn a utilitzar UnMark pas a pas amb
+                        els nostres vídeos.</p>
+                </a>
+                <!-- Card 3 -->
+                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                    href="#">
+                    <div
+                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-on-primary">monitoring</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Estat del servei</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Comprova el temps d'activitat i si hi
+                        ha interrupcions en curs.</p>
+                    <div class="mt-4 flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                        <span class="font-label-sm text-label-sm text-secondary">Tots els sistemes operatius</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section class="max-w-4xl mx-auto px-margin-desktop py-8">
+            <div class="bg-surface rounded-2xl border border-surface-variant shadow-sm overflow-hidden flex flex-col ">
+                {% block section_support %}
+                {% endblock %}
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section id="faq" class="max-w-4xl mx-auto px-margin-desktop py-16">
+            <h2 class="font-headline-lg text-headline-lg text-center mb-12 text-on-surface">Preguntes freqüents</h2>
+            <div class="space-y-stack-md">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="bg-surface rounded-xl border border-surface-variant overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.02)]">
+                    <button
+                        class="w-full px-stack-lg py-stack-md flex justify-between items-center text-left hover:bg-surface-bright transition-colors focus:outline-none">
+                        <span class="font-headline-md text-headline-md text-on-surface text-[18px]">Com puc cancel·lar
+                            la meva subscripció?</span>
+                        <span class="material-symbols-outlined text-outline">expand_more</span>
+                    </button>
+                    <div class="px-stack-lg pb-stack-md hidden">
+                        <p class="font-body-md text-body-md text-on-surface-variant">Pots cancel·lar la teva subscripció
+                            des de la configuració del teu perfil a la pestanya 'Facturació'.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div
+                    class="bg-surface rounded-xl border border-surface-variant overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.02)]">
+                    <button
+                        class="w-full px-stack-lg py-stack-md flex justify-between items-center text-left hover:bg-surface-bright transition-colors focus:outline-none">
+                        <span class="font-headline-md text-headline-md text-on-surface text-[18px]">Quins formats
+                            d'imatge suporteu?</span>
+                        <span class="material-symbols-outlined text-outline">expand_more</span>
+                    </button>
+                    <div class="px-stack-lg pb-stack-md hidden">
+                        <p class="font-body-md text-body-md text-on-surface-variant">Actualment suportem JPEG, PNG, WEBP
+                            i HEIC fins a 50MB per imatge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Form Section -->
+        <section class="bg-surface-container-low py-20 px-margin-desktop">
+            <div
+                class="max-w-3xl mx-auto bg-surface rounded-[24px] p-8 md:p-12 shadow-[0px_10px_30px_rgba(0,0,0,0.05)] border border-surface-variant">
+                <div class="text-center mb-8">
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Encara tens dubtes?</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Contacta amb nosaltres i et respondrem
+                        aviat.</p>
+                </div>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface mb-2">Nom</label>
+                            <input
+                                class="w-full rounded-lg border border-outline-variant px-4 py-3 bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md transition-shadow"
+                                type="text" />
+                        </div>
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface mb-2">Correu
+                                electrònic</label>
+                            <input
+                                class="w-full rounded-lg border border-outline-variant px-4 py-3 bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md transition-shadow"
+                                type="email" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-label-md text-on-surface mb-2">Assumpte</label>
+                        <select
+                            class="w-full rounded-lg border border-outline-variant px-4 py-3 bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md transition-shadow appearance-none">
+                            <option>Consulta general</option>
+                            <option>Suport tècnic</option>
+                            <option>Facturació</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-label-md text-on-surface mb-2">Missatge</label>
+                        <textarea
+                            class="w-full rounded-lg border border-outline-variant px-4 py-3 bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md transition-shadow"
+                            rows="4"></textarea>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-primary-container transition-colors shadow-sm flex items-center justify-center space-x-2"
+                        type="button">
+                        <span>Enviar missatge</span>
+                        <span class="material-symbols-outlined text-[18px]">send</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full bg-surface-container-low dark:bg-inverse-surface full-width bottom">
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg px-margin-desktop py-stack-lg max-w-container-max mx-auto w-full">
+            <div>
+                <div
+                    class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-inverse-on-surface mb-4">
+                    UnMark
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">
+                    © 2024 UnMark AI. Precision image processing for professionals.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-4 md:justify-end">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">Cookie Policy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">Contact Us</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">Twitter</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:underline"
+                    href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple FAQ accordion toggle
+        document.querySelectorAll('button[class*="flex justify-between"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.material-symbols-outlined');
+
+                content.classList.toggle('hidden');
+                if (content.classList.contains('hidden')) {
+                    icon.textContent = 'expand_more';
+                    button.classList.remove('bg-surface-bright');
+                } else {
+                    icon.textContent = 'expand_less';
+                    button.classList.add('bg-surface-bright');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
