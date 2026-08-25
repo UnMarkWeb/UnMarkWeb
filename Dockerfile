@@ -1,30 +1,15 @@
-# Use an official Python runtime as a parent image
-FROM python:3.13-slim
+FROM python:3.12-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV PORT=8000
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set work directory
 WORKDIR /app
 
-# Install Python dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./requirements.txt /app/
 
-# Copy project
-COPY . /app/
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Collect static files
-# Note: This requires a properly configured STATIC_ROOT in settings.py
-# RUN python manage.py collectstatic --noinput
+COPY . .
 
-# Run the application
-CMD ["python", "manage.py", "runserver", "[IP_ADDRESS]"]
+EXPOSE 8000
+
+RUN python manage.py collectstatic --noinput
+
+CMD python3 manage.py migrate --fake-initial && python3 manage.py load_municipalities && gunicorn web.wsgi:application --bind 0.0.0.0:${PORT:-8000} --timeout 90
