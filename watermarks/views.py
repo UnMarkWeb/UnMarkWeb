@@ -28,11 +28,12 @@ def state(request):
 def faq(request):
     return render(request, "support/support_content/faq.html")
 
-def status(request):
-    return render(request, "support/support_content/status.html")
 
-def tutorials(request):
-    return render(request, "support/support_content/tutorials.html")
+def videos(request):
+    return render(request, "support/support_content/videos.html")
+
+def forum(request):
+    return render(request, "support/support_content/forum.html")
 
 """--------------------------------------Login and sign up--------------------------------------"""
 

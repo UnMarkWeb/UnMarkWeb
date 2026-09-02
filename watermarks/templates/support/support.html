@@ -48,7 +48,11 @@
             </div>
         </div>
     </header>-->
+    {% if not user.is_authenticated %}
     {% include 'header_landing.html' %} 
+    {% else %}
+        {% include 'header_dashboard.html' %} 
+    {% endif %}
     <main class="flex-grow">
         <!-- Hero Section -->
         <section class="bg-surface-container-low py-20 px-margin-desktop relative overflow-hidden">
@@ -70,7 +74,7 @@
         </section>
         <!-- Quick Links Bento Grid -->
         <section class="max-w-container-max mx-auto px-margin-desktop py-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
                 <!-- Card 1 -->
                 <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
                     href="#">
@@ -85,7 +89,7 @@
                 </a>
                 <!-- Card 2 -->
                 <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
-                    href="#">
+                    href="{% url 'videos' %}">
                     <div
                         class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
                         <span
@@ -97,7 +101,7 @@
                 </a>
                 <!-- Card 3 -->
                 <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
-                    href="#">
+                    href="{% url 'state' %}">
                     <div
                         class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
                         <span
@@ -110,6 +114,17 @@
                         <span class="w-2 h-2 rounded-full bg-secondary"></span>
                         <span class="font-label-sm text-label-sm text-secondary">Tots els sistemes operatius</span>
                     </div>
+                </a>
+                <!-- Card 4 -->
+                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                    href="{% url 'forum' %}">
+                    <div
+                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-on-primary">forum</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Fòrum comunitari</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Pregunta, debat i comparteix idees amb la comunitat.</p>
                 </a>
             </div>
         </section>
