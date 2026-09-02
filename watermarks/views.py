@@ -35,6 +35,9 @@ def videos(request):
 def forum(request):
     return render(request, "support/support_content/forum.html")
 
+def documentacio(request):
+    return render(request, "support/support_content/documentacio.html")
+
 """--------------------------------------Login and sign up--------------------------------------"""
 
 def login(request):

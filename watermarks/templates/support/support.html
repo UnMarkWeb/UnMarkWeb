@@ -75,39 +75,39 @@
         <!-- Quick Links Bento Grid -->
         <section class="max-w-container-max mx-auto px-margin-desktop py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-                <!-- Card 1 -->
-                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
-                    href="#">
+                <!-- Card 1: Documentació -->
+                <a class="rounded-xl p-stack-lg transition-all duration-200 group border {% if request.resolver_match.url_name == 'documentacio' %}border-primary ring-2 ring-primary/40 bg-surface-container-low shadow-[0px_10px_30px_rgba(79,70,229,0.12)] scale-[1.02]{% else %}bg-surface border-surface-variant shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1{% endif %}"
+                    href="{% url 'documentacio' %}">
                     <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        class="w-12 h-12 rounded-full flex items-center justify-center mb-stack-md transition-colors {% if request.resolver_match.url_name == 'documentacio' %}bg-primary text-on-primary shadow-sm{% else %}bg-surface-container text-primary group-hover:bg-primary-container group-hover:text-on-primary{% endif %}">
                         <span
-                            class="material-symbols-outlined text-primary group-hover:text-on-primary">menu_book</span>
+                            class="material-symbols-outlined {% if request.resolver_match.url_name == 'documentacio' %}text-on-primary{% else %}text-primary group-hover:text-on-primary{% endif %}">menu_book</span>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Documentació</h3>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm {% if request.resolver_match.url_name == 'documentacio' %}text-primary font-bold{% else %}text-on-surface{% endif %}">Documentació</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant">Guies detallades i referències d'API
                         per a desenvolupadors.</p>
                 </a>
-                <!-- Card 2 -->
-                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                <!-- Card 2: Videos -->
+                <a class="rounded-xl p-stack-lg transition-all duration-200 group border {% if request.resolver_match.url_name == 'videos' %}border-primary ring-2 ring-primary/40 bg-surface-container-low shadow-[0px_10px_30px_rgba(79,70,229,0.12)] scale-[1.02]{% else %}bg-surface border-surface-variant shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1{% endif %}"
                     href="{% url 'videos' %}">
                     <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        class="w-12 h-12 rounded-full flex items-center justify-center mb-stack-md transition-colors {% if request.resolver_match.url_name == 'videos' %}bg-primary text-on-primary shadow-sm{% else %}bg-surface-container text-primary group-hover:bg-primary-container group-hover:text-on-primary{% endif %}">
                         <span
-                            class="material-symbols-outlined text-primary group-hover:text-on-primary">play_circle</span>
+                            class="material-symbols-outlined {% if request.resolver_match.url_name == 'videos' %}text-on-primary{% else %}text-primary group-hover:text-on-primary{% endif %}">play_circle</span>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Tutorials en vídeo</h3>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm {% if request.resolver_match.url_name == 'videos' %}text-primary font-bold{% else %}text-on-surface{% endif %}">Tutorials en vídeo</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant">Aprèn a utilitzar UnMark pas a pas amb
                         els nostres vídeos.</p>
                 </a>
-                <!-- Card 3 -->
-                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                <!-- Card 3: Estat del servei -->
+                <a class="rounded-xl p-stack-lg transition-all duration-200 group border {% if request.resolver_match.url_name == 'state' %}border-primary ring-2 ring-primary/40 bg-surface-container-low shadow-[0px_10px_30px_rgba(79,70,229,0.12)] scale-[1.02]{% else %}bg-surface border-surface-variant shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1{% endif %}"
                     href="{% url 'state' %}">
                     <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        class="w-12 h-12 rounded-full flex items-center justify-center mb-stack-md transition-colors {% if request.resolver_match.url_name == 'state' %}bg-primary text-on-primary shadow-sm{% else %}bg-surface-container text-primary group-hover:bg-primary-container group-hover:text-on-primary{% endif %}">
                         <span
-                            class="material-symbols-outlined text-primary group-hover:text-on-primary">monitoring</span>
+                            class="material-symbols-outlined {% if request.resolver_match.url_name == 'state' %}text-on-primary{% else %}text-primary group-hover:text-on-primary{% endif %}">monitoring</span>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Estat del servei</h3>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm {% if request.resolver_match.url_name == 'state' %}text-primary font-bold{% else %}text-on-surface{% endif %}">Estat del servei</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant">Comprova el temps d'activitat i si hi
                         ha interrupcions en curs.</p>
                     <div class="mt-4 flex items-center space-x-2">
@@ -115,15 +115,15 @@
                         <span class="font-label-sm text-label-sm text-secondary">Tots els sistemes operatius</span>
                     </div>
                 </a>
-                <!-- Card 4 -->
-                <a class="bg-surface rounded-xl p-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] transition-all group border border-surface-variant"
+                <!-- Card 4: Fòrum -->
+                <a class="rounded-xl p-stack-lg transition-all duration-200 group border {% if request.resolver_match.url_name == 'forum' %}border-primary ring-2 ring-primary/40 bg-surface-container-low shadow-[0px_10px_30px_rgba(79,70,229,0.12)] scale-[1.02]{% else %}bg-surface border-surface-variant shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.1)] hover:-translate-y-1{% endif %}"
                     href="{% url 'forum' %}">
                     <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md group-hover:bg-primary-container transition-colors">
+                        class="w-12 h-12 rounded-full flex items-center justify-center mb-stack-md transition-colors {% if request.resolver_match.url_name == 'forum' %}bg-primary text-on-primary shadow-sm{% else %}bg-surface-container text-primary group-hover:bg-primary-container group-hover:text-on-primary{% endif %}">
                         <span
-                            class="material-symbols-outlined text-primary group-hover:text-on-primary">forum</span>
+                            class="material-symbols-outlined {% if request.resolver_match.url_name == 'forum' %}text-on-primary{% else %}text-primary group-hover:text-on-primary{% endif %}">forum</span>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-stack-sm text-on-surface">Fòrum comunitari</h3>
+                    <h3 class="font-headline-md text-headline-md mb-stack-sm {% if request.resolver_match.url_name == 'forum' %}text-primary font-bold{% else %}text-on-surface{% endif %}">Fòrum comunitari</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant">Pregunta, debat i comparteix idees amb la comunitat.</p>
                 </a>
             </div>

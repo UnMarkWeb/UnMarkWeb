@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload, support,state,faq,videos, forum
+from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload, support,state,faq,videos, forum, documentacio
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -32,4 +32,5 @@ urlpatterns = [
     path("support/faq/", faq, name="faq"),
     path("support/videos/", videos, name="videos"),
     path("support/forum/", forum, name="forum"),
+    path("support/documentacio/", documentacio, name="documentacio"),
 ]
