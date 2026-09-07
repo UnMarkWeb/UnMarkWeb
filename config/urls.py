@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload,account, tools, library, subscription
+from watermarks.views import landing_page, login, logout, sign_up, dashboard_reload,account, tools, library, subscription,support,state,faq,videos, forum, documentacio
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,5 +30,11 @@ urlpatterns = [
     path("account/", account, name="account"),
     path("tools/", tools, name="tools"),
     path("library/", library, name="library"),
-    path("subscription/", subscription, name="subscription")
+    path("subscription/", subscription, name="subscription"),
+    path("support/", support, name="support"),
+    path("support/state/", state, name="state"),
+    path("support/faq/", faq, name="faq"),
+    path("support/videos/", videos, name="videos"),
+    path("support/forum/", forum, name="forum"),
+    path("support/documentacio/", documentacio, name="documentacio"),
 ]

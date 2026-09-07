@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
+"""--------------------------------------Main pages--------------------------------------"""
 
 def landing_page(request):
     if request.user.is_authenticated:
@@ -34,6 +35,29 @@ def subscription(request):
     if not request.user.is_authenticated:
         return redirect("login")
     return render(request, "subscription/subscription.html")
+"""--------------------------------------Support pages--------------------------------------"""
+
+def support(request):
+    return redirect("state")
+    
+
+def state(request):
+    return render(request, "support/support_content/state.html")
+
+def faq(request):
+    return render(request, "support/support_content/faq.html")
+
+
+def videos(request):
+    return render(request, "support/support_content/videos.html")
+
+def forum(request):
+    return render(request, "support/support_content/forum.html")
+
+def documentacio(request):
+    return render(request, "support/support_content/documentacio.html")
+
+"""--------------------------------------Login and sign up--------------------------------------"""
 
 def login(request):
     if request.user.is_authenticated:

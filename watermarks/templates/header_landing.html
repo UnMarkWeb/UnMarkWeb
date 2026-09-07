@@ -9,11 +9,11 @@
         </a>
         <div class="hidden md:flex gap-gutter items-center">
             <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
-                href="#pricing">{% translate "Preus" %}</a>
+                href="{% url 'landing_page' %}#pricing">{% translate "Preus" %}</a>
             <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
-                href="#features">{% translate "Característiques" %}</a>
+                href="{% url 'landing_page' %}#features">{% translate "Característiques" %}</a>
             <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
-                href="#">{% translate "Suport" %}</a>
+                href="{% url 'support' %}">{% translate "Suport" %}</a>
         </div>
         <div class="flex items-center gap-stack-md">
             {% get_current_language as CURRENT_LANGUAGE %}
