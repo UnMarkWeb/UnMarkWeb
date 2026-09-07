@@ -1,12 +1,15 @@
 {% load static %}
+{% load i18n %}
+{% include 'nav_dashboard.html' with active='dashboard' %}
 <!DOCTYPE html>
 <html class="light" lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>UnMark - Panel de Control</title>
+    <title>{% translate "UnMark - Panel de Control" %}</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
     <script src="{% static 'dashboard/tailwind-config.js' %}"></script>
     <link rel="stylesheet" href="{% static 'dashboard/dashboard.css' %}">
 
@@ -23,128 +26,25 @@
 </head>
 
 <body class="bg-background text-on-surface font-body-md antialiased h-screen flex overflow-hidden">
-    <!-- SideNavBar -->
-    <nav
-        class="hidden md:flex flex-col h-screen p-stack-md sticky top-0 w-64 bg-surface-container-low border-r border-outline-variant shrink-0">
-        <div class="mb-stack-lg flex items-center gap-3">
-            <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
-            
-                <h1 class="text-headline-md font-headline-md text-primary tracking-tight">UnMark</h1>
-            </div>
-        </div>
-        <div class="flex flex-col gap-2 flex-grow">
-            <!-- Active Tab: Dashboard -->
-            <a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold transition-transform scale-95"
-                href="#">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-                <span class="text-label-md font-label-md">Dashboard</span>
-            </a>
-            <!-- Active Tab: Tools -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_square</span>
-                <span class="text-label-md font-label-md">Tools</span>
-            </a>
-            <!-- Active Tab: Library -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined">photo_library</span>
-                <span class="text-label-md font-label-md">Library</span>
-            </a>
-            <!-- Active Tab: Account -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined">person</span>
-                <span class="text-label-md font-label-md">Account</span>
-            </a>
-            <!-- Active Tab: Subscription -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined">workspace_premium</span>
-                <span class="text-label-md font-label-md">Subscription</span>
-            </a>
-        </div>
-        <div class="mt-auto flex flex-col gap-2 pt-stack-md border-t border-outline-variant">
-            <div class="relative group px-4 py-3">
-                <button
-                    class="flex items-center gap-3 w-full text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150">
-                    <span class="material-symbols-outlined">language</span>
-                    <span class="text-label-md font-label-md flex-1 text-left">Español</span>
-                    <span class="material-symbols-outlined text-[18px]">expand_more</span>
-                </button>
-                <!-- Subtle Dropdown Menu -->
-                <div
-                    class="absolute bottom-full left-4 mb-2 w-48 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20 overflow-hidden">
-                    <a href="#"
-                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors">Català</a>
-                    <a href="#"
-                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors font-bold bg-primary-container/10">Español</a>
-                    <a href="#"
-                        class="block px-4 py-2 text-label-md text-on-surface hover:bg-surface-variant transition-colors">English</a>
-                </div>
-            </div>
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined">settings</span>
-                <span class="text-label-md font-label-md">Settings</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all hover:bg-surface-container-high opacity-80 duration-150"
-                href="#">
-                <span class="material-symbols-outlined">help_outline</span>
-                <span class="text-label-md font-label-md">Help</span>
-            </a>
-            <form method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-
-                <button
-                    type="submit"
-                    class="flex w-full items-center gap-3 rounded-lg px-4 py-2
-                        text-sm font-medium text-red-600 transition
-                        hover:bg-red-50 focus:outline-none
-                        focus:ring-2 focus:ring-red-500"
-                >
-                    <svg
-                        class="h-5 w-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17 16l4-4m0 0-4-4m4 4H7
-                            m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7
-                            a2 2 0 012-2h6a2 2 0 012 2v1"
-                        />
-                    </svg>
-
-                    Cerrar sesión
-                </button>
-            </form>
-        </div>
-    </nav>
+        <!-- SideNavBar -->
     <!-- Main Content Canvas -->
     <main class="flex-1 overflow-y-auto bg-background p-margin-desktop w-full max-w-container-max mx-auto">
         <!-- Header -->
         <header class="mb-stack-lg flex justify-between items-end">
             <div>
-                <h2 class="text-headline-lg font-headline-lg text-on-surface mb-2 tracking-tight">Hola, Bienvenido de
-                    nuevo</h2>
-                <p class="text-body-md font-body-md text-on-surface-variant">Listo para procesar tus imágenes hoy.</p>
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mb-2 tracking-tight">{% translate "Hola, Bienvenido de nuevo" %}</h2>
+                <p class="text-body-md font-body-md text-on-surface-variant">{% translate "Listo para procesar tus imágenes hoy." %}</p>
             </div>
             <!-- Subscription Widget -->
             <div
                 class="bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] rounded-[24px] p-4 flex items-center gap-4 border border-outline-variant/30">
                 <div class="flex flex-col">
-                    <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Plan
-                        Actual</span>
-                    <span class="text-body-md font-body-md font-semibold text-on-surface">Plan Normal</span>
+                    <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">{% translate "Plan Actual" %}</span>
+                    <span class="text-body-md font-body-md font-semibold text-on-surface">{% translate "Plan Normal" %}</span>
                 </div>
                 <button
                     class="bg-surface-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full text-label-md font-label-md transition-colors border border-outline-variant/50">
-                    Mejorar Plan
+                    {% translate "Mejorar Plan" %}
                 </button>
             </div>
         </header>
@@ -154,8 +54,8 @@
                 class="group flex flex-col items-center justify-center p-stack-lg bg-surface-container-lowest border-2 border-dashed border-outline-variant/50 hover:border-tertiary rounded-[24px] transition-colors min-h-[200px] cursor-pointer shadow-[0px_4px_20px_rgba(0,0,0,0.05)] relative overflow-hidden">
                 <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <span class="material-symbols-outlined text-display-lg text-primary mb-3">add_photo_alternate</span>
-                <span class="text-headline-md font-headline-md text-on-surface">Añadir Marca de Agua</span>
-                <span class="text-body-sm text-on-surface-variant mt-2">Sube imágenes para protegerlas</span>
+                <span class="text-headline-md font-headline-md text-on-surface">{% translate "Añadir Marca de Agua" %}</span>
+                <span class="text-body-sm text-on-surface-variant mt-2">{% translate "Sube imágenes para protegerlas" %}</span>
             </button>
             <button
                 class="group flex flex-col items-center justify-center p-stack-lg bg-surface-container-lowest border-2 border-dashed border-outline-variant/50 hover:border-tertiary rounded-[24px] transition-colors min-h-[200px] cursor-pointer shadow-[0px_4px_20px_rgba(0,0,0,0.05)] relative overflow-hidden">
