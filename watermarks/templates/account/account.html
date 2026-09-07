@@ -1,0 +1,189 @@
+{% load static %}
+{% load i18n %}
+{% include 'nav_dashboard.html' with active='account' %}
+
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Gestión de Cuenta - UnMark</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'account/account.css' %}">
+    <script src="{% static 'account/tailwind-config.js' %}"></script>
+</head>
+
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+    <!-- SideNavBar -->
+    <!-- nav -->
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto w-full max-w-container-max mx-auto p-margin-desktop bg-background">
+        <header class="mb-stack-lg">
+            <h1 class="text-headline-lg font-headline-lg text-on-surface">Account Settings</h1>
+            <p class="text-body-md font-body-md text-on-surface-variant mt-2">Manage your profile, watermarks, and
+                billing information.</p>
+        </header>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Perfil Section -->
+            <section
+                class="lg:col-span-8 bg-surface rounded-xl shadow-level1 p-stack-lg border border-outline-variant/30 relative overflow-hidden">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">manage_accounts</span>
+                    Profile Information
+                </h2>
+                <form class="space-y-stack-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                        <div>
+                            <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">Full
+                                Name</label>
+                            <input
+                                class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                type="text" value="Project Workspace">
+                        </div>
+                        <div>
+                            <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">Email
+                                Address</label>
+                            <input
+                                class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                type="email" value="admin@workspace.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">New
+                            Password</label>
+                        <input
+                            class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                            placeholder="••••••••" type="password">
+                    </div>
+                    <div class="flex justify-end pt-4">
+                        <button
+                            class="bg-primary text-on-primary px-6 py-3 rounded-lg text-label-md font-label-md shadow-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                            type="button">Save Changes</button>
+                    </div>
+                </form>
+            </section>
+            <!-- Suscripción Section -->
+            <section class="lg:col-span-4 flex flex-col gap-gutter">
+                <div
+                    class="bg-surface rounded-xl shadow-level1 p-stack-lg border border-outline-variant/30 flex flex-col h-full">
+                    <h2 class="text-headline-md font-headline-md text-on-surface mb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-tertiary">card_membership</span>
+                        Subscription
+                    </h2>
+                    <div class="bg-surface-container-low rounded-lg p-4 mb-4 mt-4 border border-outline-variant/50">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-label-md font-label-md text-on-surface-variant">Current Plan</span>
+                            <span
+                                class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-label-sm font-label-sm font-bold">Pro
+                                Plan</span>
+                        </div>
+                        <div class="text-display-lg font-display-lg text-on-surface my-4">$29<span
+                                class="text-body-md text-on-surface-variant font-normal">/mo</span></div>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant">Next billing date: Oct 24, 2024
+                        </p>
+                    </div>
+                    <div class="mt-auto space-y-3">
+                        <button
+                            class="w-full border border-outline text-on-surface hover:bg-surface-container-highest px-4 py-3 rounded-lg text-label-md font-label-md transition-colors text-center">View
+                            Billing History</button>
+                        <button
+                            class="w-full text-error hover:bg-error-container px-4 py-3 rounded-lg text-label-md font-label-md transition-colors text-center">Cancel
+                            Subscription</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Biblioteca de Marcas de Agua Section -->
+            <section
+                class="lg:col-span-12 bg-surface rounded-xl shadow-level1 p-stack-lg border border-outline-variant/30 mt-gutter">
+                <div class="flex justify-between items-center mb-stack-md">
+                    <h2 class="text-headline-md font-headline-md text-on-surface flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary">branding_watermark</span>
+                        Watermark Library
+                    </h2>
+                    <span
+                        class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-label-sm font-label-sm">2
+                        / 3 Used (Free Tier Limit)</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+                    <!-- Watermark Card 1 -->
+                    <div
+                        class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden group relative flex flex-col">
+                        <div class="h-32 bg-surface-container flex items-center justify-center p-4 relative">
+                            <!-- Placeholder image for watermark -->
+                            <img class="h-full object-contain opacity-70"
+                                data-alt="A clean, minimalist corporate logo featuring an abstract geometric shape in sleek monochrome tones, placed delicately over a very subtle light gray gradient background. High-quality vector style graphic design with perfect contrast and sharpness."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXLmCdtKItV_LWfYylCwXiHgMwzLmKCVO1JjRr-aqfXOkQ20agYHB6WLCjNo_7O2Kpid4UgmRMVijRVlhK34sCusdjOEEtRl90OQSKtLE5CRy0SJYsWUPSwXWS7UMbJyB0ABnzui0ihgkT8vu803ED4G50YRsG0DE0HRMeBVbjmKWcef-scXV6_RfJjs1T4Rt7kXq0jB7taALYbjWOy-RGMsM0V3OrY_tn0Ik3Etgfld0tPnDNx04">
+                            <div
+                                class="absolute inset-0 bg-on-background/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm gap-2">
+                                <button
+                                    class="bg-surface text-on-surface p-2 rounded-full hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                </button>
+                                <button
+                                    class="bg-surface text-error p-2 rounded-full hover:bg-error-container transition-colors">
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-outline-variant flex-grow">
+                            <h3 class="text-label-md font-label-md text-on-surface">Company Logo Light</h3>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">PNG • 240KB</p>
+                        </div>
+                    </div>
+                    <!-- Watermark Card 2 -->
+                    <div
+                        class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden group relative flex flex-col">
+                        <div class="h-32 bg-surface-container flex items-center justify-center p-4 relative">
+                            <!-- Placeholder image for watermark -->
+                            <img class="h-full object-contain opacity-70"
+                                data-alt="A sophisticated text-based typography logo spelling 'UNMARK' in a modern, sans-serif font. The text is crisp white against a dark charcoal background. The design is elegant, highly legible, and suited for professional digital asset branding."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTBgg_ZsY64tFXvtMb0NQ-9qot-rOcG7A4iWYSq0BqnXUqPBt7opIpU2I4i-bJ20oy4BUZVZcUlMoPcaRJRdnYdy-czvnzgeoJEvd_nJlJBv-zMZlt62ShRAQYIuda7GspnwXjVgdRao_V-SWvK-_1sxRETfWGFcTn5cmrACSZeg4rr6AIp2dB-035j0FPqijOwPGbrkCjdN_BUj2bAlif2fyEQ5yCnSk5tlxIoyFsfr7-6HjvFyc">
+                            <div
+                                class="absolute inset-0 bg-on-background/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm gap-2">
+                                <button
+                                    class="bg-surface text-on-surface p-2 rounded-full hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                </button>
+                                <button
+                                    class="bg-surface text-error p-2 rounded-full hover:bg-error-container transition-colors">
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-outline-variant flex-grow">
+                            <h3 class="text-label-md font-label-md text-on-surface">Typography Mark</h3>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">SVG • 45KB</p>
+                        </div>
+                    </div>
+                    <!-- Upload Area -->
+                    <div
+                        class="border-2 border-dashed border-outline-variant hover:border-tertiary rounded-2xl h-full min-h-[200px] flex flex-col items-center justify-center p-6 text-center cursor-pointer bg-surface-container-lowest transition-colors group">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-3 group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-colors">
+                            <span class="material-symbols-outlined text-2xl">add_photo_alternate</span>
+                        </div>
+                        <h3 class="text-label-md font-label-md text-on-surface mb-1">Upload New Watermark</h3>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant">Drag &amp; drop or click to
+                            browse</p>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant mt-2">Max 5MB (PNG, SVG)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{% extends 'support/support.html' %}
+{% block section_support %}
+<div class="tab-pane p-6 md:p-8 space-y-8" id="pane-videos">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+            class="rounded-xl overflow-hidden border border-surface-variant bg-surface-container-low group cursor-pointer">
+            <div class="aspect-video bg-surface-variant flex items-center justify-center relative">
+                <span
+                    class="material-symbols-outlined text-[48px] text-on-surface opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all">play_circle</span>
+            </div>
+            <div class="p-4">
+                <h4 class="font-headline-md text-[16px] text-on-surface mb-1">Introducció a UnMark</h4>
+                <p class="font-body-md text-[14px] text-on-surface-variant">Visió general de la plataforma.</p>
+            </div>
+        </div>
+        <div
+            class="rounded-xl overflow-hidden border border-surface-variant bg-surface-container-low group cursor-pointer">
+            <div class="aspect-video bg-surface-variant flex items-center justify-center relative">
+                <span
+                    class="material-symbols-outlined text-[48px] text-on-surface opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all">play_circle</span>
+            </div>
+            <div class="p-4">
+                <h4 class="font-headline-md text-[16px] text-on-surface mb-1">Processament per lots</h4>
+                <p class="font-body-md text-[14px] text-on-surface-variant">Com optimitzar centenars d'imatges.</p>
+            </div>
+        </div>
+        <div
+            class="rounded-xl overflow-hidden border border-surface-variant bg-surface-container-low group cursor-pointer">
+            <div class="aspect-video bg-surface-variant flex items-center justify-center relative">
+                <span
+                    class="material-symbols-outlined text-[48px] text-on-surface opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all">play_circle</span>
+            </div>
+            <div class="p-4">
+                <h4 class="font-headline-md text-[16px] text-on-surface mb-1">Integració amb Zapier</h4>
+                <p class="font-body-md text-[14px] text-on-surface-variant">Automatitza els teus fluxos de treball.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

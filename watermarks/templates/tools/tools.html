@@ -1,0 +1,235 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html class="h-full" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>UnMark - Editor de Marcas de Agua</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tools/tools.css' %}">
+    <script src="{% static 'tools/tailwind-config.js' %}"></script>
+    <script src="{% static 'tools/script.js'%}"></script>
+</head>
+
+<body class="bg-background text-on-background h-full overflow-hidden antialiased">
+    <div class="flex h-full w-full">
+        <!-- SideNavBar from JSON -->
+        {% include 'nav_dashboard.html' with active='tools' %}
+        <!-- Main Content Canvas -->
+        <main class="flex-grow flex flex-col lg:flex-row h-full overflow-hidden bg-background">
+            <!-- Central Processing Area (Dropzone) -->
+            <div
+                class="flex-grow p-margin-desktop flex flex-col items-center justify-center min-h-[500px] overflow-y-auto">
+                <div class="w-full max-w-3xl flex flex-col items-center">
+                    <div class="mb-8 text-center">
+                        <h2 class="text-headline-lg font-headline-lg text-on-surface mb-2">Editor de Marcas de Agua</h2>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Sube tus imágenes para añadir o
+                            eliminar marcas de agua con precisión.</p>
+                    </div>
+                    <!-- Dropzone -->
+                    <div
+                        class="w-full border-2 border-dashed border-outline-variant hover:border-tertiary rounded-dropzone bg-surface-container-lowest flex flex-col items-center justify-center p-12 text-center transition-colors cursor-pointer group">
+                        <div
+                            class="w-20 h-20 rounded-full bg-surface-container-low flex items-center justify-center mb-6 group-hover:bg-tertiary-fixed transition-colors">
+                            <span
+                                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-tertiary">cloud_upload</span>
+                        </div>
+                        <h3 class="text-headline-md font-headline-md text-on-surface mb-2">Arrastra y suelta imágenes
+                            aquí</h3>
+                        <p class="text-body-md font-body-md text-on-surface-variant mb-6">o haz clic para explorar tus
+                            archivos</p>
+                        <button
+                            class="px-6 py-3 bg-white border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors shadow-sm">
+                            Seleccionar Archivos
+                        </button>
+                    </div>
+                    <!-- Image Counter -->
+                    <div class="mt-4 flex items-center gap-2 text-primary">
+                        <span class="material-symbols-outlined text-sm">imagesmode</span>
+                        <span class="text-label-md font-label-md">3 imágenes subidas</span>
+                    </div>
+                    <!-- Selected Images Preview (Empty State) -->
+                    <div class="w-full mt-8 hidden" id="preview-area">
+                        <!-- Cards would go here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Right Tools Panel -->
+            <aside
+                class="w-full lg:w-[400px] bg-surface-container-lowest border-l border-outline-variant h-full flex flex-col shrink-0 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] z-10 relative">
+                <div class="p-6 border-b border-outline-variant flex-shrink-0">
+                    <h3 class="text-headline-md font-headline-md text-on-surface">Herramientas</h3>
+                </div>
+                <div class="p-6 flex-grow overflow-y-auto tools-scroll flex flex-col gap-8">
+                    <!-- Mode Selector -->
+                    <div>
+                        <label class="text-label-md font-label-md text-on-surface block mb-3">Modo de Edición</label>
+                        <div class="flex p-1 bg-surface-container-low rounded-lg">
+                            <button
+                                class="flex-1 py-2 px-4 rounded bg-surface-container-lowest shadow-sm text-primary font-label-md text-label-md transition-all flex items-center justify-center gap-2"
+                                id="mode-add-btn">
+                                <span class="material-symbols-outlined text-sm">add_circle</span>
+                                Añadir
+                            </button>
+                            <button
+                                class="flex-1 py-2 px-4 rounded text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all flex items-center justify-center gap-2"
+                                id="mode-remove-btn">
+                                <span class="material-symbols-outlined text-sm">remove_circle</span>
+                                Quitar
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Tools for 'Añadir' -->
+                    <div class="flex flex-col gap-8" id="tools-add">
+                        <!-- Watermark Gallery -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-label-md font-label-md text-on-surface">Mis Marcas de Agua</label>
+                                <button
+                                    class="text-primary hover:text-primary-fixed-variant text-label-sm font-label-sm flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[16px]">upload</span> Subir nueva
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <!-- Watermark item 1 (Selected) -->
+                                <div
+                                    class="relative h-24 rounded-xl border-2 border-primary bg-surface overflow-hidden cursor-pointer group">
+                                    <img class="w-full h-full object-contain p-4 opacity-50"
+                                        data-alt="A clean, minimalist logo of a modern company, featuring geometric shapes in dark blue on a transparent background, high contrast, crisp edges, professional aesthetic."
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfMUYeYObULtZbbo9Y7WXyEmv3lsmXbnSLVhXLtYjtxnKmFgTRrHXTInZtTEG97Z8gKsTuAu9tu158Wik215CxiuOB5jMSOJj8CtslTS22ahkutKOyzx_fcJcYvWZO7VzXEBTSEYqqBoHrkuUUm2k4j9xrK8wVy3hkFPk7c_qBm3oYYwu-5qDMP8WnytAo5COoLiUEF0BBqNEf5s4wuXBIkd6WfgBicW4hs_hXZOdBWBb6UrSyNP4">
+                                    <div
+                                        class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    </div>
+                                </div>
+                                <!-- Watermark item 2 -->
+                                <div
+                                    class="relative h-24 rounded-xl border border-outline-variant bg-surface overflow-hidden cursor-pointer hover:border-primary-container transition-colors group">
+                                    <div class="w-full h-full flex items-center justify-center p-4">
+                                        <span
+                                            class="text-headline-md font-headline-md text-on-surface-variant opacity-50">Confidencial</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Adjustments Controls -->
+                        <div class="flex flex-col gap-6 p-5 bg-surface rounded-xl border border-outline-variant">
+                            <h4 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">
+                                Ajustes</h4>
+                            <!-- Opacity -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <label class="text-label-sm font-label-sm text-on-surface">Opacidad</label>
+                                    <span class="text-label-sm font-label-sm text-on-surface-variant">65%</span>
+                                </div>
+                                <input class="w-full appearance-none bg-transparent" max="100" min="0" type="range"
+                                    value="65">
+                            </div>
+                            <!-- Size -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <label class="text-label-sm font-label-sm text-on-surface">Tamaño</label>
+                                    <span class="text-label-sm font-label-sm text-on-surface-variant">25%</span>
+                                </div>
+                                <input class="w-full appearance-none bg-transparent" max="100" min="0" type="range"
+                                    value="25">
+                            </div>
+                            <!-- Position Grid -->
+                            <div>
+                                <label class="text-label-sm font-label-sm text-on-surface block mb-2">Posición</label>
+                                <div class="grid grid-cols-3 gap-2 w-32 mx-auto">
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-primary-container text-on-primary-container rounded flex items-center justify-center shadow-sm">
+                                        <span class="material-symbols-outlined text-sm">filter_center_focus</span>
+                                    </button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                    <button
+                                        class="aspect-square bg-surface-container-high rounded hover:bg-primary-container hover:text-on-primary-container transition-colors"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tools for 'Quitar' -->
+                    <div class="hidden flex flex-col gap-6" id="tools-remove">
+                        <div
+                            class="p-5 bg-surface-container-low rounded-xl border border-outline-variant flex flex-col items-center justify-center text-center gap-3">
+                            <span
+                                class="material-symbols-outlined text-4xl text-primary animate-pulse">document_scanner</span>
+                            <div>
+                                <h4 class="text-label-md font-label-md text-on-surface mb-1">Identificar Marca de Agua
+                                </h4>
+                                <p class="text-label-sm font-label-sm text-on-surface-variant">La IA analizará las
+                                    imágenes para detectar y eliminar las marcas de agua automáticamente.</p>
+                            </div>
+                            <button
+                                class="mt-2 px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-label-sm font-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">search</span>
+                                Analizar Imágenes
+                            </button>
+                        </div>
+                        <div class="flex items-start gap-2 p-3 bg-surface rounded-lg border border-outline-variant">
+                            <span class="material-symbols-outlined text-secondary text-sm mt-0.5">check_circle</span>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Listo para remover en las 3
+                                imágenes seleccionadas.</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-outline-variant">
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex-1">
+                                <label class="text-label-md font-label-md text-on-surface block">Aplicar a todas las
+                                    imágenes</label>
+                                <p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Aplica la misma
+                                    configuración a todo el lote o personaliza cada una individualmente.</p>
+                            </div>
+                            <button type="button" role="switch" aria-checked="true"
+                                class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-primary">
+                                <span
+                                    class="pointer-events-none inline-block h-5 w-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sticky Bottom Action -->
+                <div class="p-6 border-t border-outline-variant bg-surface-container-lowest mt-auto flex-shrink-0">
+                    <div class="flex items-start gap-2 mb-4 p-3 bg-surface-container-low rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-sm mt-0.5">info</span>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant leading-relaxed">
+                            Los usuarios Pro pueden subir hasta 50 imágenes a la vez. Usuarios normales: 1 por vez.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full py-4 bg-primary text-on-primary rounded-xl text-body-lg font-body-lg hover:bg-primary-fixed-variant transition-colors flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(53,37,205,0.3)]">
+                        <span class="material-symbols-outlined" id="process-btn-icon">add_photo_alternate</span>
+                        <span id="process-btn-text" class="">Añadir Marcas de Agua</span>
+                    </button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{% extends 'support/support.html' %}
+{% block section_support %}
+<div class="tab-pane p-6 md:p-8 space-y-6" id="pane-docs">
+    <div class="pb-4 border-b border-surface-variant">
+        <h3 class="font-headline-md text-headline-md text-on-surface">Documentació per a desenvolupadors</h3>
+        <p class="font-body-md text-on-surface-variant">Guies d'integració, endpoints de l'API i exemples de codi.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-surface-variant bg-surface-container-low hover:border-primary/50 transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+                <span class="material-symbols-outlined text-primary">terminal</span>
+                <h4 class="font-headline-md text-[16px] text-on-surface">Guia d'inici ràpid</h4>
+            </div>
+            <p class="font-body-md text-[14px] text-on-surface-variant">Comença en menys de 5 minuts obtenint les teves claus d'API i fent la primera petició.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-surface-variant bg-surface-container-low hover:border-primary/50 transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+                <span class="material-symbols-outlined text-primary">api</span>
+                <h4 class="font-headline-md text-[16px] text-on-surface">Referència de l'API REST</h4>
+            </div>
+            <p class="font-body-md text-[14px] text-on-surface-variant">Documentació completa dels endpoints de detecció, neteja i exportació.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-surface-variant bg-surface-container-low hover:border-primary/50 transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+                <span class="material-symbols-outlined text-primary">webhook</span>
+                <h4 class="font-headline-md text-[16px] text-on-surface">Webhooks & Esdeveniments</h4>
+            </div>
+            <p class="font-body-md text-[14px] text-on-surface-variant">Rep notificacions asíncrones quan s'hagin processat lots de gran volum.</p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-surface-variant bg-surface-container-low hover:border-primary/50 transition-colors">
+            <div class="flex items-center space-x-3 mb-2">
+                <span class="material-symbols-outlined text-primary">code</span>
+                <h4 class="font-headline-md text-[16px] text-on-surface">SDKs oficials</h4>
+            </div>
+            <p class="font-body-md text-[14px] text-on-surface-variant">Llegeix les llibreries per a Python, JavaScript/Node.js i PHP.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

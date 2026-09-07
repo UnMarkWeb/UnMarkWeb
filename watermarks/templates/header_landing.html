@@ -1,0 +1,61 @@
+{% load i18n %}
+<nav class="bg-surface dark:bg-on-background shadow-sm sticky top-0 w-full z-50">
+    <div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+        <a href="{% url 'landing_page' %}">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
+                <span class="text-headline-md font-headline-lg text-primary dark:text-primary-fixed tracking-tight">UnMark</span>
+            </div>
+        </a>
+        <div class="hidden md:flex gap-gutter items-center">
+            <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                href="{% url 'landing_page' %}#pricing">{% translate "Preus" %}</a>
+            <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                href="{% url 'landing_page' %}#features">{% translate "Característiques" %}</a>
+            <a class="text-on-surface-variant dark:text-outline-variant font-medium text-body-md font-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors"
+                href="{% url 'support' %}">{% translate "Suport" %}</a>
+        </div>
+        <div class="flex items-center gap-stack-md">
+            {% get_current_language as CURRENT_LANGUAGE %}
+            {% get_available_languages as AVAILABLE_LANGUAGES %}
+            
+            <!-- Language Dropdown -->
+            <div class="relative group">
+                <button
+                    type="button"
+                    class="flex items-center gap-1 text-on-surface-variant dark:text-outline-variant font-medium text-label-md hover:text-primary transition-colors py-2 px-2 rounded-lg hover:bg-surface-container">
+                    <span class="material-symbols-outlined text-[20px]">language</span>
+                    <span class="hidden lg:block">
+                        {% if CURRENT_LANGUAGE == 'ca' %}Català{% elif CURRENT_LANGUAGE == 'es' %}Español{% elif CURRENT_LANGUAGE == 'en' %}English{% else %}{{ CURRENT_LANGUAGE }}{% endif %}
+                    </span>
+                    <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                </button>
+                <div
+                    class="absolute right-0 mt-1 w-40 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 overflow-hidden">
+                    <form action="{% url 'set_language' %}" method="post" id="lang-switch-form" class="m-0 p-0">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                        <input type="hidden" name="language" id="selected-lang-input" value="">
+                        {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
+                            <button type="button"
+                                onclick="document.getElementById('selected-lang-input').value='{{ lang_code }}'; document.getElementById('lang-switch-form').submit();"
+                                class="w-full text-left block px-4 py-2 text-label-md transition-colors {% if lang_code == CURRENT_LANGUAGE %}text-primary bg-surface-container font-semibold{% else %}text-on-surface hover:bg-surface-container{% endif %}">
+                                {{ lang_name }}
+                            </button>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"
+                class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">{% translate "Tancar sessió" %}</a>
+            {% else %}
+            <a href="{% url 'login' %}"
+                class="hidden md:block text-primary dark:text-primary-fixed font-label-md text-label-md hover:text-primary-container transition-colors">{% translate "Iniciar sessió" %}</a>
+            <a href="{% url 'signup' %}"
+                class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">{% translate "Registrar-se" %}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

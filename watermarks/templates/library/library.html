@@ -1,0 +1,212 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UnMark - Panel de Control</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'library/library.css' %}">
+    <script src="{% static 'library/tailwind-config.js' %}"></script>
+
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased h-screen flex overflow-hidden">
+    <!-- SideNavBar -->
+    {% include 'nav_dashboard.html' with active='tools' %}
+
+    <!-- Main Content Canvas -->
+    <main class="flex-1 overflow-y-auto bg-background p-margin-desktop w-full max-w-container-max mx-auto">
+        <header class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mb-2 tracking-tight">Biblioteca de
+                    Proyectos</h2>
+                <p class="text-body-md font-body-md text-on-surface-variant">Gestiona, descarga y revisa todas tus
+                    imágenes procesadas y pendientes.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div
+                    class="bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] rounded-[24px] p-4 hidden lg:flex items-center gap-4 border border-outline-variant/30">
+                    <div class="flex flex-col"><span
+                            class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Plan
+                            Actual</span><span class="text-body-md font-body-md font-semibold text-on-surface">Plan
+                            Normal</span></div><button
+                        class="bg-surface-variant text-on-surface hover:bg-surface-container-high px-4 py-2 rounded-full text-label-md font-label-md transition-colors border border-outline-variant/50">Mejorar
+                        Plan</button>
+                </div><button
+                    class="bg-primary text-on-primary hover:bg-primary-container px-6 py-3 rounded-full text-label-md font-label-md transition-colors flex items-center gap-2 shadow-sm"><span
+                        class="material-symbols-outlined text-[20px]">cloud_upload</span>Subir Nuevas Imágenes</button>
+            </div>
+        </header>
+        <div
+            class="bg-surface-container-lowest rounded-[24px] p-4 md:p-6 mb-stack-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col md:flex-row gap-4 justify-between items-center">
+            <div class="relative w-full md:w-96"><span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span><input
+                    class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border border-outline-variant/40 rounded-lg text-body-md text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary"
+                    placeholder="Buscar en proyectos..." type="text" /></div>
+            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto"><select
+                    class="bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-label-md text-on-surface focus:outline-none focus:border-primary">
+                    <option>Todos los estados</option>
+                    <option>Completados</option>
+                    <option>Pendientes</option>
+                    <option>En proceso</option>
+                </select><select
+                    class="bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-label-md text-on-surface focus:outline-none focus:border-primary">
+                    <option>Todos los tipos</option>
+                    <option>Añadir marca de agua</option>
+                    <option>Quitar marca de agua</option>
+                </select>
+                <div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/40">
+                    <button class="p-1.5 rounded bg-surface-container-lowest shadow-sm text-primary"><span
+                            class="material-symbols-outlined text-[20px]">grid_view</span></button><button
+                        class="p-1.5 rounded text-on-surface-variant hover:text-on-surface"><span
+                            class="material-symbols-outlined text-[20px]">view_list</span></button>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-stack-lg">
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative"><img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrFTSpzkAXVzhoS1vJhxsuRwF9P5Bsy3Mz-1j-4S5qi_9pskOPqCL74gz51QTkDPvyBAAcblw9nzebwfgjdy1QgH02jztIZ-hEKLIA9bdX7AFlwT-3VRRNeoBaYF__QQULczW7dke1_GuQaj2UbxjYAFt0LF4GyqhFB86-Oi-TGQAbIH6FgiZ5S9TN_djvUv-3m0udzA94aA7Fdh8A7rMa5DSPZhaKNfTBf-GpBiE6qhpo635S0GU" />
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">paisaje_montana_final.jpg</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Hace 2 horas</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-tertiary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] animate-spin">sync</span>En proceso
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative overflow-hidden"><img
+                            class="w-full h-full object-cover opacity-60"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAnCgMnTaJhnK9rvXCZGo7HzWiJLZ4Yc-Do-r5z-uEC6rz6nEqGP94HA4m4i5GQvJVrvlge7GH8TF09NyeMfyvn8RpJvlHSBl3Dy4QvOvcHX5RuqIzdUr6WpM4n9in1fYwgpsE6egYCPmwUx3rvkAz7ffjlff_5BZ-9-2jIV4UCOZRl5VaS6Kb0VO2wtpFHSAJ-JjIbDeYvr1jyqU0Y7SWNzaMdmef_k8sWcX0JvtoZGlL2dCG-2E" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent flex items-end p-4">
+                            <div class="w-full h-2 bg-outline-variant/30 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full w-2/3 relative">
+                                    <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">arquitectura_cristal.png</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Procesando IA...</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant cursor-not-allowed opacity-50"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative"><img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5oxIlPHcrJk_PhP_sd30IH5Df4_fSQFU4Ob0DzFUIG59KGjJMy0lH_gds9gScFhJQjbYt4G3yFx-KdW3h0aXUMItbsDNqL9ZDJo6SLUS2PsUjfwrudYm9iyKLp9fPcnxapNe13oe5KrU-WQ8mY4qRSJafVbQD5nMPWgac30IpUA1Vp7jmzNgU9k-LXJKeqjJEASg3pPIO9uYotgaz8Zi6-gOjnCMWdVw8Z-ftzVMCVrJ8bgYbJZQ" />
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">producto_movil_clean.jpg</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Ayer</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative"><img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrFTSpzkAXVzhoS1vJhxsuRwF9P5Bsy3Mz-1j-4S5qi_9pskOPqCL74gz51QTkDPvyBAAcblw9nzebwfgjdy1QgH02jztIZ-hEKLIA9bdX7AFlwT-3VRRNeoBaYF__QQULczW7dke1_GuQaj2UbxjYAFt0LF4GyqhFB86-Oi-TGQAbIH6FgiZ5S9TN_djvUv-3m0udzA94aA7Fdh8A7rMa5DSPZhaKNfTBf-GpBiE6qhpo635S0GU" />
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">playa_tropical_wm.png</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Hace 3 días</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-error font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span>Pendiente
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative"><img
+                            class="w-full h-full object-cover opacity-50"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAnCgMnTaJhnK9rvXCZGo7HzWiJLZ4Yc-Do-r5z-uEC6rz6nEqGP94HA4m4i5GQvJVrvlge7GH8TF09NyeMfyvn8RpJvlHSBl3Dy4QvOvcHX5RuqIzdUr6WpM4n9in1fYwgpsE6egYCPmwUx3rvkAz7ffjlff_5BZ-9-2jIV4UCOZRl5VaS6Kb0VO2wtpFHSAJ-JjIbDeYvr1jyqU0Y7SWNzaMdmef_k8sWcX0JvtoZGlL2dCG-2E" />
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">retrato_estudio.jpg</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">En cola...</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant cursor-not-allowed opacity-50"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest rounded-[24px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 relative group">
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-secondary font-semibold shadow-sm flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">check_circle</span>Completado
+                    </div>
+                    <div class="h-48 w-full bg-surface-variant relative"><img class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5oxIlPHcrJk_PhP_sd30IH5Df4_fSQFU4Ob0DzFUIG59KGjJMy0lH_gds9gScFhJQjbYt4G3yFx-KdW3h0aXUMItbsDNqL9ZDJo6SLUS2PsUjfwrudYm9iyKLp9fPcnxapNe13oe5KrU-WQ8mY4qRSJafVbQD5nMPWgac30IpUA1Vp7jmzNgU9k-LXJKeqjJEASg3pPIO9uYotgaz8Zi6-gOjnCMWdVw8Z-ftzVMCVrJ8bgYbJZQ" />
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-surface-container-lowest relative z-20">
+                        <div>
+                            <p class="text-body-md font-body-md font-medium truncate w-48">banner_web_v2.png</p>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Hace 5 días</p>
+                        </div><button
+                            class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors"><span
+                                class="material-symbols-outlined text-[18px]">download</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center gap-2 mt-stack-md"><button
+                    class="px-4 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-label-md font-label-md text-on-surface hover:bg-surface-variant transition-colors">Anterior</button><button
+                    class="px-4 py-2 rounded-lg bg-primary text-on-primary text-label-md font-label-md">1</button><button
+                    class="px-4 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-label-md font-label-md text-on-surface hover:bg-surface-variant transition-colors">2</button><button
+                    class="px-4 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-label-md font-label-md text-on-surface hover:bg-surface-variant transition-colors">Siguiente</button>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

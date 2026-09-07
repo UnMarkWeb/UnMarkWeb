@@ -1,0 +1,263 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Suscripción - UnMark</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config -->
+    <link href="{% static 'subscription/subscription.css' %}" rel="stylesheet" />
+    <script src="{% static 'subscription/tailwind-config.js' %}"></script>
+    
+</head>
+
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+    <!-- SideNavBar -->
+    {% include 'nav_dashboard.html' with active='subscription' %}
+    <!-- Main Content -->
+    <div class="flex-1 overflow-y-auto flex flex-col">
+        <main
+            class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-stack-lg md:py-[64px] flex flex-col items-center">
+            <header
+                class="w-full mb-stack-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-headline-lg font-headline-lg text-on-surface">Suscripción</h1>
+                    <p class="text-body-md font-body-md text-on-surface-variant mt-2">Gestiona tu plan y mejora tus
+                        capacidades de procesamiento.</p>
+                </div>
+                <div
+                    class="bg-surface-container-low rounded-lg p-4 border border-outline-variant/50 flex items-center gap-4">
+                    <div>
+                        <span class="text-label-md font-label-md text-on-surface-variant block">Plan Actual</span>
+                        <span class="text-headline-md font-headline-md text-on-surface">Free</span>
+                    </div>
+                    <span class="material-symbols-outlined text-primary-container text-4xl">workspace_premium</span>
+                </div>
+            </header>
+            <!-- Pricing Cards -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full mb-stack-lg">
+                <!-- Free Plan -->
+                <div
+                    class="pricing-card bg-surface-container-lowest border border-primary-container rounded-[24px] p-stack-lg flex flex-col shadow-[0px_0px_0px_2px_#4f46e5]">
+                    <div class="mb-stack-md">
+                        <h2 class="text-headline-md font-headline-md text-on-surface">Free</h2>
+                        <div class="mt-stack-sm flex items-baseline gap-1">
+                            <span class="text-display-lg font-display-lg text-on-surface">$0</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant mt-stack-sm">Para uso ocasional
+                            básico.</p>
+                    </div>
+                    <ul class="flex-grow space-y-stack-sm mb-stack-lg">
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">1 imagen a la vez</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Hasta 3 marcas de agua guardadas</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Resolución estándar</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg border border-outline-variant cursor-not-allowed">Plan
+                        Actual</button>
+                </div>
+                <!-- Standard Plan (Popular) -->
+                <div class="pricing-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-stack-lg flex flex-col relative"
+                    onclick="selectPlan('standard')">
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary-container text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full">
+                        Popular
+                    </div>
+                    <div class="mb-stack-md">
+                        <h2 class="text-headline-md font-headline-md text-on-surface">Pro</h2>
+                        <div class="mt-stack-sm flex items-baseline gap-1">
+                            <span class="text-display-lg font-display-lg text-on-surface">$9</span>
+                            <span class="text-body-md font-body-md text-on-surface-variant">/mes</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant mt-stack-sm">Para profesionales
+                            creativos.</p>
+                    </div>
+                    <ul class="flex-grow space-y-stack-sm mb-stack-lg">
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Procesamiento por lotes (hasta 10)</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Marcas de agua guardadas ilimitadas</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Alta resolución</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Soporte prioritario</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-surface-tint transition-colors shadow-sm">Seleccionar</button>
+                </div>
+                <!-- Premium Plan -->
+                <div class="pricing-card bg-surface-container-lowest border border-outline-variant rounded-[24px] p-stack-lg flex flex-col"
+                    onclick="selectPlan('premium')">
+                    <div class="mb-stack-md">
+                        <h2 class="text-headline-md font-headline-md text-on-surface">Premium</h2>
+                        <div class="mt-stack-sm flex items-baseline gap-1">
+                            <span class="text-display-lg font-display-lg text-on-surface">$29</span>
+                            <span class="text-body-md font-body-md text-on-surface-variant">/mes</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant mt-stack-sm">Para equipos y flujos
+                            de trabajo de alto volumen.</p>
+                    </div>
+                    <ul class="flex-grow space-y-stack-sm mb-stack-lg">
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Procesamiento por lotes ilimitado</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Resolución 4K</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Acceso API</span>
+                        </li>
+                        <li class="flex items-start gap-stack-sm text-body-md font-body-md text-on-surface">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">check</span>
+                            <span class="">Soporte dedicado</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-surface-container-high text-on-surface font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-surface-variant transition-colors border border-outline-variant">Seleccionar</button>
+                </div>
+            </section>
+            <section
+                class="hidden w-full max-w-2xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[24px] p-stack-lg mb-stack-lg shadow-level1"
+                id="payment-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-headline-md font-headline-md text-on-surface">Detalles de Pago</h2>
+                    <button class="text-primary text-label-md font-label-md hover:underline flex items-center gap-1"
+                        onclick="hidePaymentForm()">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span>
+                        Volver a planes
+                    </button>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-xl mb-8 flex justify-between items-center">
+                    <div>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Plan
+                            Seleccionado</p>
+                        <p class="text-headline-md font-headline-md text-primary" id="selected-plan-name">Pro Plan</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-display-lg font-display-lg text-on-surface" id="selected-plan-price">$9<span
+                                class="text-body-md text-on-surface-variant">/mes</span></p>
+                    </div>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface mb-2">Nombre en la
+                            tarjeta</label>
+                        <input
+                            class="w-full p-3 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                            placeholder="Juan Pérez" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-label-md font-label-md text-on-surface mb-2">Número de tarjeta</label>
+                        <div class="relative">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">credit_card</span>
+                            <input
+                                class="w-full p-3 pl-10 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                                placeholder="0000 0000 0000 0000" type="text" />
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-label-md font-label-md text-on-surface mb-2">Fecha de
+                                expiración</label>
+                            <input
+                                class="w-full p-3 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                                placeholder="MM/YY" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-label-md font-label-md text-on-surface mb-2">CVC</label>
+                            <input
+                                class="w-full p-3 rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                                placeholder="123" type="text" />
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-lg hover:bg-surface-tint transition-all shadow-md mt-4"
+                        type="submit">
+                        Pagar y Suscribirse
+                    </button>
+                    <p class="text-center text-label-sm text-on-surface-variant mt-4">
+                        Pago seguro procesado por Stripe. Puedes cancelar en cualquier momento.
+                    </p>
+                </form>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="bg-surface-container-lowest border-t border-outline-variant w-full py-stack-lg px-margin-desktop mt-auto">
+            <div class="max-w-container-max mx-auto flex justify-between items-center w-full">
+                <span class="text-body-lg font-headline-md text-on-surface">UnMark AI</span>
+                <div class="flex gap-stack-md text-label-sm font-label-sm text-on-surface-variant">
+                    <a class="hover:text-primary transition-colors" href="#">Terms</a>
+                    <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="hover:text-primary transition-colors" href="#">Contact</a>
+                    <a class="hover:text-primary transition-colors" href="#">Twitter</a>
+                </div>
+                <span class="text-label-sm font-label-sm text-on-surface-variant hidden md:block">© 2024 UnMark AI. All
+                    rights reserved.</span>
+            </div>
+            <div class="text-center mt-stack-sm md:hidden">
+                <span class="text-label-sm font-label-sm text-on-surface-variant">© 2024 UnMark AI. All rights
+                    reserved.</span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function selectPlan(planType) {
+            // Remove active state from all cards that can be clicked
+            document.querySelectorAll('.pricing-card[onclick]').forEach(card => {
+                card.classList.remove('pricing-card-active', 'border-primary-container', 'shadow-[0px_0px_0px_2px_#4f46e5]');
+                card.classList.add('border-outline-variant');
+                const btn = card.querySelector('button');
+                btn.classList.remove('bg-primary-container', 'text-on-primary');
+                btn.classList.add('bg-surface-container-high', 'text-on-surface');
+            });
+
+            // Add active state to clicked card
+            const selectedCard = event.currentTarget;
+            selectedCard.classList.remove('border-outline-variant');
+            selectedCard.classList.add('pricing-card-active', 'border-primary-container', 'shadow-[0px_0px_0px_2px_#4f46e5]');
+            const selectedBtn = selectedCard.querySelector('button');
+            selectedBtn.classList.remove('bg-surface-container-high', 'text-on-surface');
+            selectedBtn.classList.add('bg-primary-container', 'text-on-primary');
+        }
+    </script>
+</body>
+
+</html>
