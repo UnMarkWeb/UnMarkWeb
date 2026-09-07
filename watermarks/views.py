@@ -16,6 +16,25 @@ def dashboard_reload(request):
         return redirect("login")
     return render(request, "dashboard/dashboard.html")
 
+def account(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    return render(request, "account/account.html")
+
+def tools(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    return render(request, "tools/tools.html")
+
+def library(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    return render(request, "library/library.html")
+
+def subscription(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    return render(request, "subscription/subscription.html")
 """--------------------------------------Support pages--------------------------------------"""
 
 def support(request):
